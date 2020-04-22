@@ -9,8 +9,10 @@ public:
 	void sss() {
 		a = "sss";
 	}
+	abc() {}
+	~abc() {}
 };
 
-void main() {
-	std::cout << "HHH";
-}
+//void main() {
+//	std::cout << "HHH";
+//}
