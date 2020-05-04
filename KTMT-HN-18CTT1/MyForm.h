@@ -19,15 +19,19 @@ namespace KTMTHN18CTT1 {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
+
+		calculationModel calculator;
+
 		MyForm(void)
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
-
-			abc Ddd();
-			Ddd.sss();
-
+			
+			
+			//abc Ddd();
+			//Ddd.sss();
+			
 			//
 		}
 
@@ -42,7 +46,7 @@ namespace KTMTHN18CTT1 {
 				delete components;
 			}
 		}
-		//private: calculationModel calculator();
+	//private: calculationModel calculator();
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
@@ -94,7 +98,7 @@ namespace KTMTHN18CTT1 {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container^ components;
+		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -103,6 +107,7 @@ namespace KTMTHN18CTT1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -571,28 +576,32 @@ namespace KTMTHN18CTT1 {
 		}
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-
+		
 		//label1->Text = "";
-
+		
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		
 
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
+	
 		Button^ x = (Button^)sender;
 
-		calculationModel calculator();
-
-		calculator.calculatorHandleEvent(x->Text);
+		this->calculator.calculatorHandleEvent(x->Text);
+		label1->Text = calculator.result;
+		//UpdateViewFromModel();
 		//Button x = sender as Button;
-		label1->Text += x->Text;
+		//label1->Text += x->Text;
 
-
-
+		
+		
 	}
+	/*private: System::Void UpdateViewFromModel() {
+
+		label1->Text = calculator.result;
+	}*/
 
 
-	};
+};
 }

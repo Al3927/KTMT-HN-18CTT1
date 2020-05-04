@@ -2,13 +2,13 @@
 
 calculationModel::calculationModel()
 {
-	std::cout << "init calculator!";
-	throw gcnew System::NotImplementedException();
+	//std::cout << "init calculator!!!";
+	//throw gcnew System::NotImplementedException();
 }
 
 calculationModel::~calculationModel()
 {
-	throw gcnew System::NotImplementedException();
+	//throw gcnew System::NotImplementedException();
 }
 
 void calculationModel::calculatorHandleEvent(String^ buttonTitle)
@@ -158,5 +158,5 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 //                Log += " = " + "\(result)" + "\n"
 //        }
 //}
-	throw gcnew System::NotImplementedException();
+	//throw gcnew System::NotImplementedException();
 }
