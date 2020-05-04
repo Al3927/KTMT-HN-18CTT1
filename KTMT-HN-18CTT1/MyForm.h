@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Source.cpp"
+#include "calculationModel.h"
 #include <iostream>
 
 namespace KTMTHN18CTT1 {
@@ -23,9 +24,10 @@ namespace KTMTHN18CTT1 {
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
-			//abc Ddd();
-			//Ddd.sss();
-			
+
+			abc Ddd();
+			Ddd.sss();
+
 			//
 		}
 
@@ -40,6 +42,7 @@ namespace KTMTHN18CTT1 {
 				delete components;
 			}
 		}
+		//private: calculationModel calculator();
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
@@ -91,7 +94,7 @@ namespace KTMTHN18CTT1 {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -568,24 +571,28 @@ namespace KTMTHN18CTT1 {
 		}
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		
+
 		//label1->Text = "";
-		
+
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+
 
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	
+
 		Button^ x = (Button^)sender;
+
+		calculationModel calculator();
+
+		calculator.calculatorHandleEvent(x->Text);
 		//Button x = sender as Button;
 		label1->Text += x->Text;
 
-		
-		
+
+
 	}
 
 
-};
+	};
 }
