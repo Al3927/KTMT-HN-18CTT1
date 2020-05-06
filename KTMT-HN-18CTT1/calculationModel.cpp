@@ -69,12 +69,21 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 		else if (buttonTitle == "NOT") {
 
 		}
+		else if (buttonTitle == "rol") {
+
+		}
+		else if (buttonTitle == "ror") {
+
+		}
 		else if(buttonTitle == ".") {
 			Type1 = false;
 		}
 		else {
 
 		}
+	}
+	else {
+
 	}
 //    if (isNewLife){
 //        //previousNumber = 0.0
@@ -221,5 +230,55 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 //                Log += " = " + "\(result)" + "\n"
 //        }
 //}
+	//throw gcnew System::NotImplementedException();
+}
+
+void calculationModel::handleOperator()
+{
+	if (result == "" || result == ".") {
+
+	}
+	else {
+
+		if (nearestOperator == "+") {
+			//previousNumber += Double(result)!
+		}
+		else if (nearestOperator == "-") {
+			//previousNumber -= Double(result)!
+		}
+		else if (nearestOperator == "x") {
+			//previousNumber *= Double(result)!
+		}
+		else if (nearestOperator == "/") {
+			//previousNumber /= Double(result)!
+		}
+		else if (nearestOperator == "AND") {
+
+		}
+		else if (nearestOperator == "OR") {
+
+		}
+		else if (nearestOperator == "XOR") {
+
+		}
+		else if (nearestOperator == "NOT") {
+
+		}
+		else if (nearestOperator == "<<") {
+
+		}
+		else if (nearestOperator == ">>") {
+
+		}
+		else if (nearestOperator == "rol") {
+
+		}
+		else if (nearestOperator == "ror") {
+
+		}
+		else {
+			//previousNumber = Double(result)!
+		}
+	}
 	//throw gcnew System::NotImplementedException();
 }

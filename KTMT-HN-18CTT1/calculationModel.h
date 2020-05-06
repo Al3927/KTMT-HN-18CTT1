@@ -29,6 +29,8 @@ public:
 	~calculationModel();
 
 	void calculatorHandleEvent(String^ buttonTitle);
+	void handleOperator();
+
 private:
 
 	String^ Log = "";
