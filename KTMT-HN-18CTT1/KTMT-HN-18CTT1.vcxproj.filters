@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Task 1">
+      <UniqueIdentifier>{0604e42b-9a11-404e-b8be-4b50a6c02db3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyForm.cpp">
@@ -24,6 +27,15 @@
     <ClCompile Include="calculationModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Task1\Bit.cpp">
+      <Filter>Task 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Task1\QInt.cpp">
+      <Filter>Task 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Task1\QIntManaged.cpp">
+      <Filter>Task 1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -31,6 +43,18 @@
     </ClInclude>
     <ClInclude Include="calculationModel.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Task1\Bit.h">
+      <Filter>Task 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Task1\Header.h">
+      <Filter>Task 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Task1\QInt.h">
+      <Filter>Task 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Task1\QIntManaged.h">
+      <Filter>Task 1</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

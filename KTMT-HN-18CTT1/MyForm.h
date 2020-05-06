@@ -107,7 +107,6 @@ namespace KTMTHN18CTT1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -151,7 +150,7 @@ namespace KTMTHN18CTT1 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(265, 94);
+			this->label1->Location = System::Drawing::Point(85, 95);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(31, 13);
 			this->label1->TabIndex = 0;
@@ -528,7 +527,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(415, 462);
+			this->ClientSize = System::Drawing::Size(310, 462);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
@@ -589,18 +588,18 @@ namespace KTMTHN18CTT1 {
 		Button^ x = (Button^)sender;
 
 		this->calculator.calculatorHandleEvent(x->Text);
-		label1->Text = calculator.result;
-		//UpdateViewFromModel();
+		//label1->Text = calculator.result;
+		UpdateViewFromModel();
 		//Button x = sender as Button;
 		//label1->Text += x->Text;
 
 		
 		
 	}
-	/*private: System::Void UpdateViewFromModel() {
+	private: System::Void UpdateViewFromModel() {
 
 		label1->Text = calculator.result;
-	}*/
+	}
 
 
 };

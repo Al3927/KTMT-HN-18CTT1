@@ -2,6 +2,7 @@
 
 calculationModel::calculationModel()
 {
+	previousNumber1.unmangedQInt->setMode(10);
 	//std::cout << "init calculator!!!";
 	//throw gcnew System::NotImplementedException();
 }
@@ -13,6 +14,16 @@ calculationModel::~calculationModel()
 
 void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 {
+	result += "1";
+	if (buttonTitle == "DEC") {
+		previousNumber1.unmangedQInt->setMode(10);
+	}
+	if (buttonTitle == "BIN") {
+		previousNumber1.unmangedQInt->setMode(2);
+	}
+	if (buttonTitle == "HEX") {
+		previousNumber1.unmangedQInt->setMode(16);
+	}
 //    if (isNewLife){
 //        //previousNumber = 0.0
 //        result = "";

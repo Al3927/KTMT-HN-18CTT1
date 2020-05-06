@@ -1,6 +1,9 @@
 #pragma once
 
 #include <iostream>
+//#include "Header.h"
+#include "Task1/QIntManaged.h"
+
 using namespace System;
 using namespace System::Windows::Forms;
 
@@ -13,6 +16,8 @@ public:
 	String^ nearestOperator = "";
 	String^ result = "";
 	
+	QIntManaged previousNumber1;
+
 	double previousNumber = 0.0;
 	bool isNewLife = true;
 	double ppNumber = 1.0;
