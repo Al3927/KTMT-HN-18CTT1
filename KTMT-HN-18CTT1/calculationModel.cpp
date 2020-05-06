@@ -59,7 +59,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			}
 
 			nearestOperator = "x";
-			result = "";
+			isNewLife = true;
 		}
 		else if (buttonTitle == "÷") {
 			if (result == "" || result == ".") {
@@ -71,7 +71,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			}
 
 			nearestOperator = "÷";
-			result = "";
+			isNewLife = true;
 
 		}
 		else if (buttonTitle == "+") {
@@ -84,7 +84,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			}
 
 			nearestOperator = "+";
-			result = "";
+			isNewLife = true;
 		}
 		else if (buttonTitle == "-") {
 			if (result == "" || result == ".") {
@@ -96,10 +96,10 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			}
 
 			nearestOperator = "-";
-			result = "";
+			isNewLife = true;
 
 		}
-		else if (buttonTitle == "AC") {
+		else if (buttonTitle == "AC") { //clear all
 			Type1 = true;
 			result = "";
 			resultBIN = "";
@@ -146,8 +146,10 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			Type1 = false;
 		}
 		else {
-
+			//Xu li nhap so
+			isNewLife = false;
 		}
+		
 	}
 	else {
 
