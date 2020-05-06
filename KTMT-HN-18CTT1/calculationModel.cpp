@@ -15,6 +15,9 @@ calculationModel::~calculationModel()
 void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 {
 	result += "1";
+	/*if (Type1) {
+
+	}*/
 	if (buttonTitle == "DEC") {
 		previousNumber1.unmangedQInt->setMode(10);
 	}
@@ -25,10 +28,53 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 		previousNumber1.unmangedQInt->setMode(16);
 	}
 	if (isNewLife) {
+		Type1 = true;
 		result = "";
 		resultBIN = "";
 		resultDEC = "";
 		resultHEX = "";
+	}
+	if (buttonTitle != "=")
+	{
+		if (buttonTitle == "x") {
+
+		}
+		else if (buttonTitle == "÷") {
+
+		}
+		else if (buttonTitle == "+") {
+
+		}
+		else if (buttonTitle == "-") {
+
+		}
+		else if (buttonTitle == "AC") {
+
+		}
+		else if (buttonTitle == "<<") {
+
+		}
+		else if (buttonTitle == ">>") {
+
+		}
+		else if (buttonTitle == "AND") {
+
+		}
+		else if (buttonTitle == "OR") {
+
+		}
+		else if (buttonTitle == "XOR") {
+
+		}
+		else if (buttonTitle == "NOT") {
+
+		}
+		else if(buttonTitle == ".") {
+			Type1 = false;
+		}
+		else {
+
+		}
 	}
 //    if (isNewLife){
 //        //previousNumber = 0.0

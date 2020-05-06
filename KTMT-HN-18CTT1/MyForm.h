@@ -311,7 +311,7 @@ namespace KTMTHN18CTT1 {
 			this->button16->Name = L"button16";
 			this->button16->Size = System::Drawing::Size(39, 23);
 			this->button16->TabIndex = 16;
-			this->button16->Text = L"/\r\n";
+			this->button16->Text = L"÷";
 			this->button16->UseVisualStyleBackColor = true;
 			this->button16->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
