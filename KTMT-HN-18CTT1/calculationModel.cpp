@@ -22,6 +22,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 	}*/
 
 	//Example about how to use the variable unmanagedQUint.
+	/*
 	if (buttonTitle == "DEC") {
 		previousNumber1.unmangedQInt->setMode(10);
 	}
@@ -31,6 +32,12 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 	if (buttonTitle == "HEX") {
 		previousNumber1.unmangedQInt->setMode(16);
 	}
+	*/
+
+	//result: Gia tri label. Label value
+	//Cu the: Gia tri do nguoi dung nhap vao trong moi phien (life). Moi phien (life cycle) bat dau khi chuong trinh chay/thuc hien phep tinh/AC/./=
+	//Va tiep tuc den khi bat dau phien moi hoac ket thuc chuong trinh.
+	//previousNumber: Gia tri so, luu ket qua qua moi phep tinh. 
 
 	if (isNewLife) {
 		Type1 = true;
@@ -42,18 +49,64 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 	if (buttonTitle != "=")
 	{
 		if (buttonTitle == "x") {
+		
+			if (result == "" || result == ".") {
 
+			}
+			else {
+				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
+				handleOperator();
+			}
+
+			nearestOperator = "x";
+			result = "";
 		}
 		else if (buttonTitle == "÷") {
+			if (result == "" || result == ".") {
+
+			}
+			else {
+				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
+				handleOperator();
+			}
+
+			nearestOperator = "÷";
+			result = "";
 
 		}
 		else if (buttonTitle == "+") {
+			if (result == "" || result == ".") {
 
+			}
+			else {
+				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
+				handleOperator();
+			}
+
+			nearestOperator = "+";
+			result = "";
 		}
 		else if (buttonTitle == "-") {
+			if (result == "" || result == ".") {
+
+			}
+			else {
+				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
+				handleOperator();
+			}
+
+			nearestOperator = "-";
+			result = "";
 
 		}
 		else if (buttonTitle == "AC") {
+			Type1 = true;
+			result = "";
+			resultBIN = "";
+			resultDEC = "";
+			resultHEX = "";
+			isNewLife = true;
+			//previous = 0.0
 
 		}
 		else if (buttonTitle == "<<") {
