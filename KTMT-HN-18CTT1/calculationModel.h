@@ -15,6 +15,9 @@ public:
 
 	String^ nearestOperator = "";
 	String^ result = "";
+	String^ resultDEC = "";
+	String^ resultHEX = "";
+	String^ resultBIN = "";
 	
 	QIntManaged previousNumber1;
 

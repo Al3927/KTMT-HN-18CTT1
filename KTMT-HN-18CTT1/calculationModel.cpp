@@ -24,6 +24,12 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 	if (buttonTitle == "HEX") {
 		previousNumber1.unmangedQInt->setMode(16);
 	}
+	if (isNewLife) {
+		result = "";
+		resultBIN = "";
+		resultDEC = "";
+		resultHEX = "";
+	}
 //    if (isNewLife){
 //        //previousNumber = 0.0
 //        result = "";

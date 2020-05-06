@@ -83,10 +83,10 @@ namespace KTMTHN18CTT1 {
 
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Button^ button30;
-	private: System::Windows::Forms::Button^ button31;
+
 	private: System::Windows::Forms::Button^ button32;
 	private: System::Windows::Forms::Button^ button33;
-	private: System::Windows::Forms::Label^ label2;
+
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
 
@@ -139,10 +139,8 @@ namespace KTMTHN18CTT1 {
 			this->button29 = (gcnew System::Windows::Forms::Button());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->button30 = (gcnew System::Windows::Forms::Button());
-			this->button31 = (gcnew System::Windows::Forms::Button());
 			this->button32 = (gcnew System::Windows::Forms::Button());
 			this->button33 = (gcnew System::Windows::Forms::Button());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
@@ -150,7 +148,7 @@ namespace KTMTHN18CTT1 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(85, 95);
+			this->label1->Location = System::Drawing::Point(85, 122);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(31, 13);
 			this->label1->TabIndex = 0;
@@ -466,19 +464,9 @@ namespace KTMTHN18CTT1 {
 			this->button30->UseVisualStyleBackColor = true;
 			this->button30->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
-			// button31
-			// 
-			this->button31->Location = System::Drawing::Point(77, 181);
-			this->button31->Name = L"button31";
-			this->button31->Size = System::Drawing::Size(39, 23);
-			this->button31->TabIndex = 40;
-			this->button31->Text = L"OCT";
-			this->button31->UseVisualStyleBackColor = true;
-			this->button31->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			// 
 			// button32
 			// 
-			this->button32->Location = System::Drawing::Point(77, 152);
+			this->button32->Location = System::Drawing::Point(77, 181);
 			this->button32->Name = L"button32";
 			this->button32->Size = System::Drawing::Size(39, 23);
 			this->button32->TabIndex = 41;
@@ -488,7 +476,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button33
 			// 
-			this->button33->Location = System::Drawing::Point(77, 123);
+			this->button33->Location = System::Drawing::Point(77, 152);
 			this->button33->Name = L"button33";
 			this->button33->Size = System::Drawing::Size(39, 23);
 			this->button33->TabIndex = 42;
@@ -496,28 +484,20 @@ namespace KTMTHN18CTT1 {
 			this->button33->UseVisualStyleBackColor = true;
 			this->button33->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(122, 186);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(13, 13);
-			this->label2->TabIndex = 43;
-			this->label2->Text = L"_";
-			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(122, 157);
+			this->label3->Location = System::Drawing::Point(122, 186);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(13, 13);
 			this->label3->TabIndex = 44;
 			this->label3->Text = L"_";
+			this->label3->Click += gcnew System::EventHandler(this, &MyForm::label3_Click);
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(122, 128);
+			this->label4->Location = System::Drawing::Point(122, 157);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(13, 13);
 			this->label4->TabIndex = 45;
@@ -530,10 +510,8 @@ namespace KTMTHN18CTT1 {
 			this->ClientSize = System::Drawing::Size(310, 462);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
 			this->Controls->Add(this->button33);
 			this->Controls->Add(this->button32);
-			this->Controls->Add(this->button31);
 			this->Controls->Add(this->button30);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->button29);
@@ -602,5 +580,7 @@ namespace KTMTHN18CTT1 {
 	}
 
 
+private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
