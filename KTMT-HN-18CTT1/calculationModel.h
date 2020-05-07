@@ -12,6 +12,8 @@ ref class calculationModel
 public:
 	//Type 1 = true, type 2 = false
 	bool Type1 = true;
+	bool isHex = false;
+	bool isBin = false;
 
 	String^ nearestOperator = "";
 	String^ result = "";
@@ -19,17 +21,21 @@ public:
 	String^ resultHEX = "";
 	String^ resultBIN = "";
 	
+	QIntManaged previousNumberManaged;
 	QIntManaged previousNumber1;
 
 	double previousNumber = 0.0;
 	bool isNewLife = true;
-	double ppNumber = 1.0;
-	double ppNumber1 = 1.0;
+	bool isNewLife1 = true; //Sau dau bang hoac vua mo ct.
+	QIntManaged ppNumber;
+	QIntManaged ppNumber1;
 	calculationModel();
 	~calculationModel();
 
+	//Goi ham nay khi nhan vao mot button
 	void calculatorHandleEvent(String^ buttonTitle);
 	void handleOperator();
+	void updateResult(String^ buttonTitle);
 
 private:
 
