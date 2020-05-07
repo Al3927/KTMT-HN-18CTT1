@@ -154,6 +154,82 @@ void QInt::input()
 	}
 	cout << "Cac block: " << data[0] << " " << data[1] << " " << data[2] << " " << data[3] << endl;
 }
+void QInt::input(System::String^ abc, int mode)
+{
+	setMode(mode);
+	bool isNeg = false;
+	std::string inp = toStandardString(abc);
+	string::iterator it = inp.begin();
+	if (inp.empty()) {
+		//no input, throw exception
+	}
+	if (*it == '-') {
+		isNeg = true;
+		it++;
+	}
+	while (*it == '\t' || *it == '\n' || *it == '\v' || *it == '\f' || *it == '\r' || *it == ' ') {
+		it++;
+	}
+	switch (md)
+	{
+	case QInt::mode::hexadecimal:
+	{
+		clear();
+		while (it != inp.end())
+			if (*it >= '0' && *it <= '9') {
+				if (MulAdd(16, *it - '0')) {
+					//NULL
+				}
+				it++;
+			}
+			else
+				if (*it >= 'A' && *it <= 'F') {
+					if (MulAdd(16, *it - 'A' + 10)) {
+						//NULL
+					}
+					it++;
+				}
+				else
+					if (*it >= 'a' && *it <= 'f') {
+						if (MulAdd(16, *it - 'a' + 10)) {
+							//NULL
+						}
+						it++;
+					}
+	}
+	break;
+	case QInt::mode::binary:
+	{
+		clear();
+		while (it != inp.end())
+			if (*it >= '0' && *it <= '1') {
+				if (MulAdd(2, *it - '0')) {
+					//NULL
+				}
+				it++;
+			}
+	}
+	break;
+	case QInt::mode::decimal:
+	{
+		clear();
+		while (it != inp.end())
+			if (*it >= '0' && *it <= '9') {
+				if (MulAdd(10, *it - '0')) {
+					//NULL
+				}
+				it++;
+			}
+	}
+	}
+	if (isNeg) {
+		QInt one;
+		one.clear();
+		one.data[3] = 1;
+		QInt temp = (~*this) + one;
+		*this = temp;
+	}
+}
 void QInt::print()
 {
 	setMode();

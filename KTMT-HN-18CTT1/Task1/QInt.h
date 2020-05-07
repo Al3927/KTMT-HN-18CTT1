@@ -4,10 +4,21 @@
 
 using namespace System;
 using namespace System::Windows::Forms;
+using System::Runtime::InteropServices::Marshal;
 
 class QInt {
 	unsigned int data[4];
 public:
+
+	static std::string toStandardString(System::String^ string)
+	{
+		System::IntPtr pointer = Marshal::StringToHGlobalAnsi(string);
+		char* charPointer = reinterpret_cast<char*>(pointer.ToPointer());
+		std::string returnString(charPointer, string->Length);
+		Marshal::FreeHGlobal(pointer);
+		return returnString;
+	}
+
 	enum class mode { binary, decimal, hexadecimal };
 	mode md;//MODE ma User dang thao tac -> moi ket qua se hien theo he cua mode
 	QInt();
@@ -20,6 +31,7 @@ public:
 	void setMode();//chon mode theo enum class
 	void setMode(int mode);
 	void input(); //xu li input theo mode => lay data
+	void input(System::String^ inp, int mode);
 	void print();//xu li output => in data theo mode ma user da chon
 	void clear() { data[0] = data[1] = data[2] = data[3] = 0; };//Khoi tao
 	void func_InToOut()

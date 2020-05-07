@@ -3,10 +3,13 @@
 calculationModel::calculationModel()
 {
 	previousNumber1.unmangedQInt->setMode(10);
-	ppNumber.unmangedQInt = 0;
-	ppNumber.unmangedQInt += 1;
-	ppNumber1.unmangedQInt = 0;
-	ppNumber1.unmangedQInt += 1;
+	Number0.unmangedQInt->input("0", 2);
+
+	//ppNumber.unmangedQInt = 0;
+	//ppNumber.unmangedQInt += 1;
+	//ppNumber1.unmangedQInt = 0;
+	//ppNumber1.unmangedQInt += 1;
+
 	//std::cout << "init calculator!!!";
 	//throw gcnew System::NotImplementedException();
 }
@@ -51,7 +54,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 		resultBIN = "";
 		resultDEC = "";
 		resultHEX = "";
-		previousNumberManaged.unmangedQInt = 0;
+		//previousNumberManaged.unmangedQInt = 0;
 	}
 	if (isNewLife) {
 		Type1 = true;
@@ -59,7 +62,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 		resultBIN = "";
 		resultDEC = "";
 		resultHEX = "";
-		previousNumberManaged.unmangedQInt = 0;
+		//previousNumberManaged.unmangedQInt = 0;
 	}
 	if (buttonTitle != "=")
 	{
@@ -70,11 +73,17 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 
 			}
 			else {
-				if (previousNumber1.unmangedQInt = 0) {
-					if (previousNumberManaged.unmangedQInt == 0) {
-						ppNumber1.unmangedQInt = 0;
+				/*
+				Xu ly neu nhap 0 dau, can != giua 2 QInt
+				if (previousNumber1.unmangedQInt == 0) {
+					QIntManaged temp;
+					temp.unmangedQInt->input(resultBIN, 2);
+					QIntManaged temp1;
+					temp1.unmangedQInt->input("0", 2);
+					if (temp != temp1) {
+						ppNumber1.unmangedQInt->input("0", 2);
 					}
-					previousNumber1.unmangedQInt = previousNumberManaged.unmangedQInt;
+					previousNumber1.unmangedQInt->input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -83,6 +92,20 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 				if (previousNumber1.unmangedQInt != 0 && ppNumber1.unmangedQInt == 0) {
 					previousNumber1.unmangedQInt = 0;
 					ppNumber1.unmangedQInt += 1;
+				}*/
+
+				if (Type1)
+				{
+					//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
+					if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
+						previousNumber1.unmangedQInt->input(resultBIN, 2);
+					}
+					else {
+						handleOperator();
+					}
+				}
+				else {
+
 				}
 			}
 
@@ -94,12 +117,18 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 
 			}
 			else {
-				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == 0) {
-					previousNumber1.unmangedQInt = previousNumberManaged.unmangedQInt;
+				if (Type1)
+				{
+					//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
+					if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
+						previousNumber1.unmangedQInt->input(resultBIN, 2);
+					}
+					else {
+						handleOperator();
+					}
 				}
 				else {
-					handleOperator();
+
 				}
 				
 			}
@@ -113,12 +142,18 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 
 			}
 			else {
-				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == 0) {
-					previousNumber1.unmangedQInt = previousNumberManaged.unmangedQInt;
+				if (Type1)
+				{
+					//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
+					if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
+						previousNumber1.unmangedQInt->input(resultBIN, 2);
+					}
+					else {
+						handleOperator();
+					}
 				}
 				else {
-					handleOperator();
+
 				}
 			}
 
@@ -130,12 +165,18 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 
 			}
 			else {
-				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == 0) {
-					previousNumber1.unmangedQInt = previousNumberManaged.unmangedQInt;
+				if (Type1)
+				{
+					//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
+					if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
+						previousNumber1.unmangedQInt->input(resultBIN, 2);
+					}
+					else {
+						handleOperator();
+					}
 				}
 				else {
-					handleOperator();
+
 				}
 			}
 
@@ -150,20 +191,20 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			resultDEC = "";
 			resultHEX = "";
 			isNewLife = true;
-			previousNumber1.unmangedQInt = 0;
-			previousNumberManaged.unmangedQInt = 0;
+			previousNumber1.unmangedQInt = Number0.unmangedQInt;
+			//previousNumberManaged.unmangedQInt = 0;
 			//previous = 0.0
 
 		}
-		else if (buttonTitle == "<<" && isBin) {
+		else if (buttonTitle == "<<" && isBin && !Type1) {
 
 			if (result == "" || result == ".") {
 
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == 0) {
-					previousNumber1.unmangedQInt = previousNumberManaged.unmangedQInt;
+				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
+					previousNumber1.unmangedQInt->input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -174,15 +215,15 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			isNewLife = true;
 
 		}
-		else if (buttonTitle == ">>" && isBin) {
+		else if (buttonTitle == ">>" && isBin && !Type1) {
 
 			if (result == "" || result == ".") {
 
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == 0) {
-					previousNumber1.unmangedQInt = previousNumberManaged.unmangedQInt;
+				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
+					previousNumber1.unmangedQInt->input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -193,15 +234,15 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			isNewLife = true;
 
 		}
-		else if (buttonTitle == "AND" && isBin) {
+		else if (buttonTitle == "AND" && isBin && !Type1) {
 
 			if (result == "" || result == ".") {
 
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == 0) {
-					previousNumber1.unmangedQInt = previousNumberManaged.unmangedQInt;
+				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
+					previousNumber1.unmangedQInt->input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -212,15 +253,15 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			isNewLife = true;
 
 		}
-		else if (buttonTitle == "OR" && isBin) {
+		else if (buttonTitle == "OR" && isBin && !Type1) {
 
 			if (result == "" || result == ".") {
 
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == 0) {
-					previousNumber1.unmangedQInt = previousNumberManaged.unmangedQInt;
+				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
+					previousNumber1.unmangedQInt->input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -231,15 +272,15 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			isNewLife = true;
 
 		}
-		else if (buttonTitle == "XOR" && isBin) {
+		else if (buttonTitle == "XOR" && isBin && !Type1) {
 
 			if (result == "" || result == ".") {
 
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == 0) {
-					previousNumber1.unmangedQInt = previousNumberManaged.unmangedQInt;
+				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
+					previousNumber1.unmangedQInt->input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -250,15 +291,15 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			isNewLife = true;
 
 		}
-		else if (buttonTitle == "NOT" && isBin) {
+		else if (buttonTitle == "NOT" && isBin && !Type1) {
 
 			if (result == "" || result == ".") {
 
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == 0) {
-					previousNumber1.unmangedQInt = previousNumberManaged.unmangedQInt;
+				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
+					previousNumber1.unmangedQInt->input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -269,15 +310,15 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			isNewLife = true;
 
 		}
-		else if (buttonTitle == "rol" && isBin) {
+		else if (buttonTitle == "rol" && isBin && !Type1) {
 
 			if (result == "" || result == ".") {
 
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == 0) {
-					previousNumber1.unmangedQInt = previousNumberManaged.unmangedQInt;
+				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
+					previousNumber1.unmangedQInt->input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -288,15 +329,15 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			isNewLife = true;
 
 		}
-		else if (buttonTitle == "ror" && isBin) {
+		else if (buttonTitle == "ror" && isBin && !Type1) {
 
 			if (result == "" || result == ".") {
 
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == 0) {
-					previousNumber1.unmangedQInt = previousNumberManaged.unmangedQInt;
+				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
+					previousNumber1.unmangedQInt->input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -337,7 +378,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 				}
 				else {
 					if (isNewLife1 && nearestOperator == "") {
-						previousNumber1.unmangedQInt = 0;
+						previousNumber1.unmangedQInt = Number0.unmangedQInt;
 					}
 					//result += buttonTitle;
 					updateResult(buttonTitle);
@@ -363,7 +404,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			}
 			else {
 				if (isNewLife1 && nearestOperator == "") {
-					previousNumber1.unmangedQInt = 0;
+					previousNumber1.unmangedQInt = Number0.unmangedQInt;
 				}
 				//result += buttonTitle;
 				updateResult(buttonTitle);
@@ -395,7 +436,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 		else {
 			//Xu li nhap so 0 va 1
 			if (isNewLife1 && nearestOperator == "") {
-				previousNumber1.unmangedQInt = 0;
+				previousNumber1.unmangedQInt = Number0.unmangedQInt;
 			}
 			//result += buttonTitle;
 			updateResult(buttonTitle);
@@ -427,15 +468,40 @@ void calculationModel::handleOperator()
 
 		if (nearestOperator == "+") {
 			//previousNumber += Double(result)!
-			previousNumber1.unmangedQInt = (previousNumber1.unmangedQInt + previousNumberManaged.unmangedQInt);
+			if (!Type1)
+			{
+
+			}
+			else {
+				//previousNumber1.unmangedQInt = (previousNumber1.unmangedQInt + previousNumberManaged.unmangedQInt);
+			}
+			
 		}
 		else if (nearestOperator == "-") {
+			if (!Type1) {
+
+			}
+			else {
+
+			}
 			//previousNumber -= Double(result)!
 		}
 		else if (nearestOperator == "x") {
+			if (!Type1) {
+
+			}
+			else {
+
+			}
 			//previousNumber *= Double(result)!
 		}
-		else if (nearestOperator == "/") {
+		else if (nearestOperator == "÷") {
+			if (!Type1) {
+
+			}
+			else {
+
+			}
 			//previousNumber /= Double(result)!
 		}
 		else if (nearestOperator == "AND") {
@@ -471,7 +537,6 @@ void calculationModel::handleOperator()
 
 void calculationModel::updateResult(String^ buttonTitle)
 {
-	
 	if (isBin) {
 		resultBIN += buttonTitle;
 		result = resultBIN;
@@ -483,6 +548,12 @@ void calculationModel::updateResult(String^ buttonTitle)
 	else {
 		resultDEC += buttonTitle;
 		result = resultDEC;
+	}
+	if (Type1) {
+
+	}
+	else {
+
 	}
 	
 	

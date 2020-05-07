@@ -23,6 +23,7 @@ public:
 	
 	QIntManaged previousNumberManaged;
 	QIntManaged previousNumber1;
+	QIntManaged Number0;
 
 	double previousNumber = 0.0;
 	bool isNewLife = true;
