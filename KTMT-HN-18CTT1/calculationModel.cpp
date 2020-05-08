@@ -54,7 +54,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 		resultBIN = "";
 		resultDEC = "";
 		resultHEX = "";
-		//previousNumberManaged.unmangedQInt = 0;
+		previousNumberManaged.unmangedQInt = Number0.unmangedQInt;
 	}
 	if (isNewLife) {
 		Type1 = true;
@@ -62,7 +62,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 		resultBIN = "";
 		resultDEC = "";
 		resultHEX = "";
-		//previousNumberManaged.unmangedQInt = 0;
+		previousNumberManaged.unmangedQInt = Number0.unmangedQInt;
 	}
 	if (buttonTitle != "=")
 	{
@@ -352,16 +352,19 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			isHex = false;
 			isBin = false;
 			isNewLife = false;
+			updateResult(buttonTitle);
 		}
 		else if (buttonTitle == "BIN") {
 			isHex = false;
 			isBin = true;
 			isNewLife = false;
+			updateResult(buttonTitle);
 		}
 		else if (buttonTitle == "HEX") {
 			isHex = true;
 			isBin = false;
 			isNewLife = false;
+			updateResult(buttonTitle);
 
 		}
 		else if(buttonTitle == ".") {
@@ -385,12 +388,12 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 					isNewLife = false;
 
 					//Xu li PreviousNumberManaged
-					if (Type1) {
+					/*if (Type1) {
 
 					}
 					else {
 
-					}
+					}*/
 					////
 				}
 			}
@@ -410,23 +413,23 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 				updateResult(buttonTitle);
 				isNewLife = false;
 				//Xu li previousNumberManaged
-				if (Type1) {
-					if (isHex) {
+				//if (Type1) {
+				//	if (isHex) {
 
-					}
-					else {
-						//Dec
-					}
-				}
-				else {
+				//	}
+				//	else {
+				//		//Dec
+				//	}
+				//}
+				//else {
 
-					if (isHex) {
+				//	if (isHex) {
 
-					}
-					else {
-						//Dec
-					}
-				}
+				//	}
+				//	else {
+				//		//Dec
+				//	}
+				//}
 				//////
 				
 				
@@ -441,13 +444,13 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			//result += buttonTitle;
 			updateResult(buttonTitle);
 			isNewLife = false;
-			//Xu li previousNumberManaged
-			if (Type1) {
+			////Xu li previousNumberManaged
+			//if (Type1) {
 
-			}
-			else {
-				
-			}
+			//}
+			//else {
+			//	
+			//}
 		}
 		isNewLife1 = false;
 	}
@@ -537,23 +540,48 @@ void calculationModel::handleOperator()
 
 void calculationModel::updateResult(String^ buttonTitle)
 {
-	if (isBin) {
-		resultBIN += buttonTitle;
-		result = resultBIN;
-	}
-	else if (isHex) {
-		resultHEX += buttonTitle;
-		result = resultHEX;
+	if (buttonTitle == "DEC" || buttonTitle == "BIN" || buttonTitle == "HEX") {
+		if (buttonTitle == "DEC") {
+			result = resultDEC;
+		}
+		else if (buttonTitle == "HEX") {
+			result = resultHEX;
+		}
+		else if (buttonTitle == "BIN") {
+			result = resultBIN;
+		}
+	}else if (Type1) {
+		if (isBin) {
+			resultBIN += buttonTitle;
+			result = resultBIN;
+			previousNumberManaged.unmangedQInt->input(result, 2);
+			resultDEC = previousNumberManaged.unmangedQInt->print(10);
+			resultHEX = previousNumberManaged.unmangedQInt->print(16);
+		}
+		else if (isHex) {
+			resultHEX += buttonTitle;
+			result = resultHEX;
+
+			previousNumberManaged.unmangedQInt->input(result, 16);
+			resultDEC = previousNumberManaged.unmangedQInt->print(10);
+			resultBIN = previousNumberManaged.unmangedQInt->print(2);
+		}
+		else {
+			resultDEC += buttonTitle;
+			result = resultDEC;
+
+			previousNumberManaged.unmangedQInt->input(result, 10);
+			resultBIN = previousNumberManaged.unmangedQInt->print(2);
+			resultHEX = previousNumberManaged.unmangedQInt->print(16);
+		}
 	}
 	else {
-		resultDEC += buttonTitle;
-		result = resultDEC;
-	}
-	if (Type1) {
-
-	}
-	else {
-
+		if (isBin) {
+			
+		}
+		else {
+			
+		}
 	}
 	
 	

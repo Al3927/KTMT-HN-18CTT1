@@ -230,6 +230,100 @@ void QInt::input(System::String^ abc, int mode)
 		*this = temp;
 	}
 }
+String^ QInt::print(int mode)
+{
+	setMode(mode);
+	switch (md)
+	{
+	case QInt::mode::binary:
+	{
+		std::string output;
+
+		unsigned int mask = 1; // mask co 31 bit 0, bit cuoi la 1
+		for (int i = 3; i >= 0; i--) {//chay cho tung block data
+			mask = 1;
+			for (int j = 0; j < 32; j++) {//do bit cua tung block
+				if ((mask & data[i]) >= 1) {// xet xem bit do co la bit 1 hay khong (tu cuoi block -> dau block)
+					output = "1" + output;
+				}
+				else {
+					output = "0" + output;
+				}
+				mask <<= 1;// dich bit 1 cua mask sang trai de get bit tiep theo
+			}
+			output = " " + output;
+		}
+		String^ Out = gcnew String(output.c_str());
+		//String^ Out = marshal_as<String^>(output);
+		return Out;
+	}
+	break;
+	case QInt::mode::decimal:
+	{
+		string output;
+		QInt temp = *this;
+		if (Bit::getBit(data[0], 31)) {
+			temp.clear();
+			QInt one;
+			one.clear();
+			one.data[3] = 1;
+			temp = (~*this) + one;
+			output = '-';
+		}
+		for (int i = 0; i < 4; i++) {
+			if (temp.data[i] != 0) {
+				output.append(to_string(temp.data[i]));
+			}
+		}
+		String^ Out = gcnew String(output.c_str());
+		return Out;
+		break;
+	}
+	case QInt::mode::hexadecimal:
+	{
+		string output;
+		for (int i = 3; i > -1; i--)
+		{
+			int div = data[i];
+			int mod = 0;
+			do
+			{
+				mod = div % 16;
+				switch (mod)
+				{
+				case 10:
+					output = "A" + output;
+					break;
+				case 11:
+					output = "B" + output;
+					break;
+				case 12:
+					output = "C" + output;
+					break;
+				case 13:
+					output = "D" + output;
+					break;
+				case 14:
+					output = "E" + output;
+					break;
+				case 15:
+					output = "F" + output;
+					break;
+				default:
+					output = to_string(mod) + output;
+					break;
+				}
+				div /= 16;
+			} while (div != 0);
+		}
+		String^ Out = gcnew String(output.c_str());
+		return Out;
+	}
+	break;
+	default:
+		break;
+	}
+}
 void QInt::print()
 {
 	setMode();

@@ -1,15 +1,20 @@
 #pragma once
 #include "Header.h"
 #include "Bit.h"
+//#include <msclr\marshal_cppstd.h>
 
 using namespace System;
 using namespace System::Windows::Forms;
 using System::Runtime::InteropServices::Marshal;
+//using namespace msclr::interop;
 
 class QInt {
 	unsigned int data[4];
 public:
-
+	///
+	///
+	///
+	//Add for UI
 	static std::string toStandardString(System::String^ string)
 	{
 		System::IntPtr pointer = Marshal::StringToHGlobalAnsi(string);
@@ -18,6 +23,12 @@ public:
 		Marshal::FreeHGlobal(pointer);
 		return returnString;
 	}
+	void setMode(int mode);
+	void input(System::String^ inp, int mode);
+	String^ print(int mode);
+	///
+	///
+	///
 
 	enum class mode { binary, decimal, hexadecimal };
 	mode md;//MODE ma User dang thao tac -> moi ket qua se hien theo he cua mode
@@ -29,9 +40,9 @@ public:
 
 	//-----------------CONVERT----------------
 	void setMode();//chon mode theo enum class
-	void setMode(int mode);
+	
 	void input(); //xu li input theo mode => lay data
-	void input(System::String^ inp, int mode);
+	
 	void print();//xu li output => in data theo mode ma user da chon
 	void clear() { data[0] = data[1] = data[2] = data[3] = 0; };//Khoi tao
 	void func_InToOut()

@@ -21,6 +21,8 @@ namespace KTMTHN18CTT1 {
 	public:
 
 		calculationModel calculator;
+		bool isBin = false;
+		bool isHex = false;
 
 		MyForm(void)
 		{
@@ -391,63 +393,63 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button24
 			// 
+			this->button24->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button24->Location = System::Drawing::Point(77, 394);
 			this->button24->Name = L"button24";
 			this->button24->Size = System::Drawing::Size(39, 23);
 			this->button24->TabIndex = 25;
 			this->button24->Text = L"F";
 			this->button24->UseVisualStyleBackColor = true;
-			this->button24->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button25
 			// 
+			this->button25->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button25->Location = System::Drawing::Point(77, 365);
 			this->button25->Name = L"button25";
 			this->button25->Size = System::Drawing::Size(39, 23);
 			this->button25->TabIndex = 26;
 			this->button25->Text = L"E";
 			this->button25->UseVisualStyleBackColor = true;
-			this->button25->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button26
 			// 
+			this->button26->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button26->Location = System::Drawing::Point(77, 336);
 			this->button26->Name = L"button26";
 			this->button26->Size = System::Drawing::Size(39, 23);
 			this->button26->TabIndex = 27;
 			this->button26->Text = L"D";
 			this->button26->UseVisualStyleBackColor = true;
-			this->button26->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button27
 			// 
+			this->button27->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button27->Location = System::Drawing::Point(77, 307);
 			this->button27->Name = L"button27";
 			this->button27->Size = System::Drawing::Size(39, 23);
 			this->button27->TabIndex = 28;
 			this->button27->Text = L"C";
 			this->button27->UseVisualStyleBackColor = true;
-			this->button27->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button28
 			// 
+			this->button28->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button28->Location = System::Drawing::Point(77, 278);
 			this->button28->Name = L"button28";
 			this->button28->Size = System::Drawing::Size(39, 23);
 			this->button28->TabIndex = 29;
 			this->button28->Text = L"B";
 			this->button28->UseVisualStyleBackColor = true;
-			this->button28->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button29
 			// 
+			this->button29->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button29->Location = System::Drawing::Point(77, 249);
 			this->button29->Name = L"button29";
 			this->button29->Size = System::Drawing::Size(39, 23);
 			this->button29->TabIndex = 30;
 			this->button29->Text = L"A";
 			this->button29->UseVisualStyleBackColor = true;
-			this->button29->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// label6
 			// 
@@ -509,6 +511,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button31
 			// 
+			this->button31->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->button31->Location = System::Drawing::Point(77, 220);
 			this->button31->Name = L"button31";
 			this->button31->Size = System::Drawing::Size(107, 23);
@@ -531,7 +534,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(310, 462);
+			this->ClientSize = System::Drawing::Size(747, 462);
 			this->Controls->Add(this->button34);
 			this->Controls->Add(this->button31);
 			this->Controls->Add(this->label4);
@@ -596,13 +599,81 @@ namespace KTMTHN18CTT1 {
 		UpdateViewFromModel();
 		//Button x = sender as Button;
 		//label1->Text += x->Text;
+		if (x->Text == "BIN") {
+			isBin = true;
+			isHex = false;
+		}
+		else if (x->Text == "HEX") {
+			isHex = true;
+			isBin = false;
+		}
+		else if (x->Text == "DEC") {
+			isBin = false;
+			isHex = false;
+		}
+		UpdateIsHEX();
+		UpdateIsBIN();
+		
+	}
+	private: System::Void UpdateIsHEX() {
 
-		
-		
+		if (isHex) {
+			this->button29->Text = L"A";
+			this->button29->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->button29->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button28->Text = L"B";
+			this->button28->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->button28->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button27->Text = L"C";
+			this->button27->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->button27->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button26->Text = L"D";
+			this->button26->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->button26->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button25->Text = L"E";
+			this->button25->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->button25->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button24->Text = L"F";
+			this->button24->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->button24->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+		}
+		else {
+			this->button29->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button29->Text = L"";
+			this->button29->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button28->Text = L"";
+			this->button28->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->button28->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button27->Text = L"";
+			this->button27->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->button27->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button26->Text = L"";
+			this->button26->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->button26->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button25->Text = L"";
+			this->button25->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->button25->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button24->Text = L"";
+			this->button24->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->button24->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+		}
+	
+	}
+	private: System::Void UpdateIsBIN(){
+		if (isBin) {
+
+		}
+		else {
+
+		}
 	}
 	private: System::Void UpdateViewFromModel() {
 
 		label1->Text = calculator.result;
+		//4: Dec 3: Hex 6:Bin
+		label4->Text = calculator.resultDEC;
+		label3->Text = calculator.resultHEX;
+		label6->Text = calculator.resultBIN;
 	}
 
 
