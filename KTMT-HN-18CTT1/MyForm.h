@@ -283,6 +283,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button13
 			// 
+			this->button13->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button13->Location = System::Drawing::Point(257, 365);
 			this->button13->Name = L"button13";
 			this->button13->Size = System::Drawing::Size(39, 23);
@@ -293,6 +294,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button14
 			// 
+			this->button14->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button14->Location = System::Drawing::Point(257, 336);
 			this->button14->Name = L"button14";
 			this->button14->Size = System::Drawing::Size(39, 23);
@@ -303,6 +305,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button15
 			// 
+			this->button15->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button15->Location = System::Drawing::Point(257, 307);
 			this->button15->Name = L"button15";
 			this->button15->Size = System::Drawing::Size(39, 23);
@@ -313,6 +316,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button16
 			// 
+			this->button16->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button16->Location = System::Drawing::Point(257, 278);
 			this->button16->Name = L"button16";
 			this->button16->Size = System::Drawing::Size(39, 23);
@@ -323,6 +327,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button18
 			// 
+			this->button18->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button18->Location = System::Drawing::Point(122, 249);
 			this->button18->Name = L"button18";
 			this->button18->Size = System::Drawing::Size(39, 23);
@@ -333,6 +338,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button19
 			// 
+			this->button19->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button19->Location = System::Drawing::Point(167, 249);
 			this->button19->Name = L"button19";
 			this->button19->Size = System::Drawing::Size(39, 23);
@@ -343,6 +349,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button20
 			// 
+			this->button20->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button20->Location = System::Drawing::Point(212, 249);
 			this->button20->Name = L"button20";
 			this->button20->Size = System::Drawing::Size(39, 23);
@@ -353,6 +360,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button21
 			// 
+			this->button21->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button21->Location = System::Drawing::Point(257, 249);
 			this->button21->Name = L"button21";
 			this->button21->Size = System::Drawing::Size(39, 23);
@@ -363,6 +371,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button17
 			// 
+			this->button17->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button17->Location = System::Drawing::Point(122, 278);
 			this->button17->Name = L"button17";
 			this->button17->Size = System::Drawing::Size(39, 23);
@@ -373,6 +382,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button22
 			// 
+			this->button22->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button22->Location = System::Drawing::Point(167, 278);
 			this->button22->Name = L"button22";
 			this->button22->Size = System::Drawing::Size(39, 23);
@@ -400,6 +410,7 @@ namespace KTMTHN18CTT1 {
 			this->button24->TabIndex = 25;
 			this->button24->Text = L"F";
 			this->button24->UseVisualStyleBackColor = true;
+			this->button24->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button25
 			// 
@@ -410,6 +421,7 @@ namespace KTMTHN18CTT1 {
 			this->button25->TabIndex = 26;
 			this->button25->Text = L"E";
 			this->button25->UseVisualStyleBackColor = true;
+			this->button25->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button26
 			// 
@@ -420,6 +432,7 @@ namespace KTMTHN18CTT1 {
 			this->button26->TabIndex = 27;
 			this->button26->Text = L"D";
 			this->button26->UseVisualStyleBackColor = true;
+			this->button26->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button27
 			// 
@@ -430,6 +443,7 @@ namespace KTMTHN18CTT1 {
 			this->button27->TabIndex = 28;
 			this->button27->Text = L"C";
 			this->button27->UseVisualStyleBackColor = true;
+			this->button27->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button28
 			// 
@@ -440,6 +454,7 @@ namespace KTMTHN18CTT1 {
 			this->button28->TabIndex = 29;
 			this->button28->Text = L"B";
 			this->button28->UseVisualStyleBackColor = true;
+			this->button28->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button29
 			// 
@@ -450,6 +465,7 @@ namespace KTMTHN18CTT1 {
 			this->button29->TabIndex = 30;
 			this->button29->Text = L"A";
 			this->button29->UseVisualStyleBackColor = true;
+			this->button29->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// label6
 			// 
@@ -498,7 +514,6 @@ namespace KTMTHN18CTT1 {
 			this->label3->Size = System::Drawing::Size(13, 13);
 			this->label3->TabIndex = 44;
 			this->label3->Text = L"_";
-			this->label3->Click += gcnew System::EventHandler(this, &MyForm::label3_Click);
 			// 
 			// label4
 			// 
@@ -511,7 +526,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button31
 			// 
-			this->button31->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->button31->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button31->Location = System::Drawing::Point(77, 220);
 			this->button31->Name = L"button31";
 			this->button31->Size = System::Drawing::Size(107, 23);
@@ -522,6 +537,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			// button34
 			// 
+			this->button34->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			this->button34->Location = System::Drawing::Point(189, 220);
 			this->button34->Name = L"button34";
 			this->button34->Size = System::Drawing::Size(107, 23);
@@ -618,53 +634,143 @@ namespace KTMTHN18CTT1 {
 	private: System::Void UpdateIsHEX() {
 
 		if (isHex) {
-			this->button29->Text = L"A";
+			//this->button29->Text = L"A";
 			this->button29->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->button29->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			this->button28->Text = L"B";
+			//this->button29->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button28->Text = L"B";
 			this->button28->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->button28->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			this->button27->Text = L"C";
+			//this->button28->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button27->Text = L"C";
 			this->button27->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->button27->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			this->button26->Text = L"D";
+			//this->button27->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button26->Text = L"D";
 			this->button26->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->button26->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			this->button25->Text = L"E";
+			//this->button26->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button25->Text = L"E";
 			this->button25->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->button25->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			this->button24->Text = L"F";
+			//this->button25->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button24->Text = L"F";
 			this->button24->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->button24->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button24->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 		}
 		else {
 			this->button29->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 			//this->button29->Text = L"";
-			this->button29->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button29->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
 			//this->button28->Text = L"";
 			this->button28->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->button28->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button28->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
 			//this->button27->Text = L"";
 			this->button27->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->button27->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button27->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
 			//this->button26->Text = L"";
 			this->button26->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->button26->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button26->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
 			//this->button25->Text = L"";
 			this->button25->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->button25->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button25->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
 			//this->button24->Text = L"";
 			this->button24->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->button24->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			//this->button24->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
 		}
 	
 	}
 	private: System::Void UpdateIsBIN(){
 		if (isBin) {
+			//operator button
+			this->button13->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button13->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button14->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button14->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button15->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button15->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button16->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button16->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button18->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button18->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button19->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button19->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button20->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button20->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button21->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button21->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button17->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button17->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button22->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button22->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button31->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button31->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button34->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button34->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 
+			//2->9 button
+			this->button8->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button8->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button9->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button9->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button4->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button4->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button5->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button5->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button6->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button6->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button1->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button1->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button2->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button2->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button3->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button3->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+
+			//0,1
+
+			
+			
 		}
 		else {
+			//operator button
 
+			this->button13->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button13->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button14->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button14->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button15->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button15->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button16->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button16->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button18->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button18->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button19->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button19->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button20->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button20->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button21->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button21->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button17->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button17->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button22->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button22->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button31->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button31->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button34->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			//this->button34->Click -= gcnew System::EventHandler(this, &MyForm::button1_Click);
+
+			//2->9 button
+			this->button8->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button8->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button9->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button9->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button4->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button4->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button5->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button5->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button6->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button6->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button1->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button2->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button2->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button3->ForeColor = System::Drawing::SystemColors::ControlText;
+			//this->button3->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 		}
 	}
 	private: System::Void UpdateViewFromModel() {

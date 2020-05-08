@@ -24,10 +24,13 @@ public:
 	QIntManaged previousNumberManaged;
 	QIntManaged previousNumber1;
 	QIntManaged Number0;
+	QIntManaged Number0dec;
+	QIntManaged Number0hex;
 
 	double previousNumber = 0.0;
 	bool isNewLife = true;
 	bool isNewLife1 = true; //Sau dau bang hoac vua mo ct.
+	bool isUpdateResult = false;
 	QIntManaged ppNumber;
 	QIntManaged ppNumber1;
 	calculationModel();
@@ -36,6 +39,8 @@ public:
 	//Goi ham nay khi nhan vao mot button
 	void calculatorHandleEvent(String^ buttonTitle);
 	void handleOperator();
+
+	//Goi ham nay khi ket qua thay doi
 	void updateResult(String^ buttonTitle);
 
 private:

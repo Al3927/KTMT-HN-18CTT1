@@ -4,6 +4,8 @@ calculationModel::calculationModel()
 {
 	previousNumber1.unmangedQInt->setMode(10);
 	Number0.unmangedQInt->input("0", 2);
+	Number0dec.unmangedQInt->input("0", 10);
+	Number0hex.unmangedQInt->input("0", 16);
 
 	//ppNumber.unmangedQInt = 0;
 	//ppNumber.unmangedQInt += 1;
@@ -190,9 +192,11 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			resultBIN = "";
 			resultDEC = "";
 			resultHEX = "";
+			nearestOperator == "";
 			isNewLife = true;
+			isNewLife1 = true;
 			previousNumber1.unmangedQInt = Number0.unmangedQInt;
-			//previousNumberManaged.unmangedQInt = 0;
+			previousNumberManaged.unmangedQInt = Number0.unmangedQInt;
 			//previous = 0.0
 
 		}
@@ -381,7 +385,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 				}
 				else {
 					if (isNewLife1 && nearestOperator == "") {
-						previousNumber1.unmangedQInt = Number0.unmangedQInt;
+						previousNumber1.unmangedQInt = Number0hex.unmangedQInt;
 					}
 					//result += buttonTitle;
 					updateResult(buttonTitle);
@@ -398,9 +402,9 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 				}
 			}
 		}
-		else if (buttonTitle != "0" || buttonTitle != "1") {
+		else if (buttonTitle != "0" && buttonTitle != "1") {
 
-		//xu li nhap so 2->9
+			//xu li nhap so 2->9
 
 			if (isBin) {
 				//Do nothing...
@@ -412,26 +416,6 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 				//result += buttonTitle;
 				updateResult(buttonTitle);
 				isNewLife = false;
-				//Xu li previousNumberManaged
-				//if (Type1) {
-				//	if (isHex) {
-
-				//	}
-				//	else {
-				//		//Dec
-				//	}
-				//}
-				//else {
-
-				//	if (isHex) {
-
-				//	}
-				//	else {
-				//		//Dec
-				//	}
-				//}
-				//////
-				
 				
 			}
 		
@@ -456,9 +440,11 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 	}
 	else { // buttonTitle == "="
 		handleOperator();
-		//result = String(previousNumber1. Khong co ep keu String @@
+		//result = String(previousNumber1.)
 		//updateResult();
 	}
+
+
 
 }
 
@@ -554,6 +540,7 @@ void calculationModel::updateResult(String^ buttonTitle)
 		if (isBin) {
 			resultBIN += buttonTitle;
 			result = resultBIN;
+
 			previousNumberManaged.unmangedQInt->input(result, 2);
 			resultDEC = previousNumberManaged.unmangedQInt->print(10);
 			resultHEX = previousNumberManaged.unmangedQInt->print(16);
