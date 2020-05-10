@@ -1,11 +1,12 @@
+#include "calculatorUnmanaged.h"
 #include "calculationModel.h"
 
-calculationModel::calculationModel()
+calculatorUnmanaged::calculatorUnmanaged()
 {
-	previousNumber1.unmangedQInt->setMode(10);
-	Number0.unmangedQInt->input("0", 2);
-	Number0dec.unmangedQInt->input("0", 10);
-	Number0hex.unmangedQInt->input("0", 16);
+	previousNumber1.setMode(10);
+	Number0.input("0", 2);
+	Number0dec.input("0", 10);
+	Number0hex.input("0", 16);
 	//previousNumber1 = Number0;
 
 	//ppNumber.unmangedQInt = 0;
@@ -17,17 +18,18 @@ calculationModel::calculationModel()
 	//throw gcnew System::NotImplementedException();
 }
 
-calculationModel::~calculationModel()
+calculatorUnmanaged::~calculatorUnmanaged()
 {
 	//throw gcnew System::NotImplementedException();
 }
 
 //Goi ham nay khi nhan vao mot button
-void calculationModel::calculatorHandleEvent(String^ buttonTitle)
+void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 {
 	// https://github.com/Al3927/Calculator_Swift/blob/master/Calculator/Calculator.swift
 
-	
+
+	std::string buttonTitle = toStandardString(buttonTitle1);
 
 	//result += "1";
 	/*if (Type1) {
@@ -57,14 +59,14 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 		resultBIN = "";
 		resultDEC = "";
 		resultHEX = "";
-		previousNumberManaged.unmangedQInt = Number0.unmangedQInt;
+		previousNumberManaged = Number0;
 	}
-	
+
 	if (buttonTitle != "=")
 	{
 		//isNewLife1 = false
 		if (buttonTitle == "x" && isBin) {
-		
+
 			if (result == "" || result == ".") {
 
 			}
@@ -93,8 +95,8 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 				if (Type1)
 				{
 					//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-					if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
-						previousNumber1.unmangedQInt->input(resultBIN, 2);
+					if (previousNumber1 == Number0) {
+						previousNumber1.input(resultBIN, 2);
 					}
 					else {
 						handleOperator();
@@ -116,8 +118,8 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 				if (Type1)
 				{
 					//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-					if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
-						previousNumber1.unmangedQInt->input(resultBIN, 2);
+					if (previousNumber1 == Number0) {
+						previousNumber1.input(resultBIN, 2);
 					}
 					else {
 						handleOperator();
@@ -126,7 +128,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 				else {
 
 				}
-				
+
 			}
 
 			nearestOperator = "÷";
@@ -141,9 +143,8 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 				if (Type1)
 				{
 					//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-					if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
-						//previousNumber1.unmangedQInt->clear();
-						previousNumber1.unmangedQInt->input(resultBIN, 2);
+					if (previousNumber1 == Number0) {
+						previousNumber1.input(resultBIN, 2);
 					}
 					else {
 						handleOperator();
@@ -165,8 +166,8 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 				if (Type1)
 				{
 					//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-					if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
-						previousNumber1.unmangedQInt->input(resultBIN, 2);
+					if (previousNumber1 == Number0) {
+						previousNumber1.input(resultBIN, 2);
 					}
 					else {
 						handleOperator();
@@ -190,8 +191,8 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			nearestOperator == "";
 			isNewLife = true;
 			isNewLife1 = true;
-			previousNumber1.unmangedQInt = Number0.unmangedQInt;
-			previousNumberManaged.unmangedQInt = Number0.unmangedQInt;
+			previousNumber1 = Number0;
+			previousNumberManaged = Number0;
 			//previous = 0.0
 
 		}
@@ -202,8 +203,8 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
-					previousNumber1.unmangedQInt->input(resultBIN, 2);
+				if (previousNumber1 == Number0) {
+					previousNumber1.input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -221,8 +222,8 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
-					previousNumber1.unmangedQInt->input(resultBIN, 2);
+				if (previousNumber1 == Number0) {
+					previousNumber1.input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -240,8 +241,8 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
-					previousNumber1.unmangedQInt->input(resultBIN, 2);
+				if (previousNumber1 == Number0) {
+					previousNumber1.input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -259,8 +260,8 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
-					previousNumber1.unmangedQInt->input(resultBIN, 2);
+				if (previousNumber1 == Number0) {
+					previousNumber1.input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -278,8 +279,8 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
-					previousNumber1.unmangedQInt->input(resultBIN, 2);
+				if (previousNumber1 == Number0) {
+					previousNumber1.input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -297,8 +298,8 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
-					previousNumber1.unmangedQInt->input(resultBIN, 2);
+				if (previousNumber1 == Number0) {
+					previousNumber1.input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -316,8 +317,8 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
-					previousNumber1.unmangedQInt->input(resultBIN, 2);
+				if (previousNumber1 == Number0) {
+					previousNumber1.input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -335,8 +336,8 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			}
 			else {
 				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt == Number0.unmangedQInt) {
-					previousNumber1.unmangedQInt->input(resultBIN, 2);
+				if (previousNumber1 == Number0) {
+					previousNumber1.input(resultBIN, 2);
 				}
 				else {
 					handleOperator();
@@ -366,7 +367,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			updateResult(buttonTitle);
 
 		}
-		else if(buttonTitle == ".") {
+		else if (buttonTitle == ".") {
 			Type1 = false;
 			isNewLife = true;
 		}
@@ -380,7 +381,7 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 				}
 				else {
 					if (isNewLife1 && nearestOperator == "") {
-						previousNumber1.unmangedQInt = Number0hex.unmangedQInt;
+						previousNumber1 = Number0hex;
 					}
 					//result += buttonTitle;
 					updateResult(buttonTitle);
@@ -397,10 +398,10 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 				}
 			}
 		}
-		else if (buttonTitle != "0" && buttonTitle != "1" && buttonTitle != "+" && buttonTitle != "-" 
-		&& buttonTitle != "x" && buttonTitle != "÷"
-		&& buttonTitle != "AND" && buttonTitle != "OR" && buttonTitle != "XOR" && buttonTitle != "NOT"
-		&& buttonTitle != "<<" && buttonTitle != ">>" && buttonTitle != "rol" && buttonTitle != "ror") {
+		else if (buttonTitle != "0" && buttonTitle != "1" && buttonTitle != "+" && buttonTitle != "-"
+			&& buttonTitle != "x" && buttonTitle != "÷"
+			&& buttonTitle != "AND" && buttonTitle != "OR" && buttonTitle != "XOR" && buttonTitle != "NOT"
+			&& buttonTitle != "<<" && buttonTitle != ">>" && buttonTitle != "rol" && buttonTitle != "ror") {
 
 			//xu li nhap so 2->9
 
@@ -409,19 +410,19 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 			}
 			else {
 				if (isNewLife1 && nearestOperator == "") {
-					previousNumber1.unmangedQInt = Number0.unmangedQInt;
+					previousNumber1 = Number0;
 				}
 				//result += buttonTitle;
 				updateResult(buttonTitle);
 				isNewLife = false;
-				
+
 			}
-		
+
 		}
-		else if(buttonTitle == "0" || buttonTitle == "1"){
+		else if (buttonTitle == "0" || buttonTitle == "1") {
 			//Xu li nhap so 0 va 1
 			if (isNewLife1 && nearestOperator == "") {
-				previousNumber1.unmangedQInt = Number0.unmangedQInt;
+				previousNumber1 = Number0;
 			}
 			//result += buttonTitle;
 			updateResult(buttonTitle);
@@ -436,12 +437,12 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 		}
 		isNewLife1 = false;
 	}
-	else if(buttonTitle == "=") { // buttonTitle == "="
+	else if (buttonTitle == "=") { // buttonTitle == "="
 		handleOperator();
 		//result = String(previousNumber1.)
-		resultDEC = previousNumber1.unmangedQInt->print(10);
-		resultHEX = previousNumber1.unmangedQInt->print(16);
-		resultBIN = previousNumber1.unmangedQInt->print(2);
+		resultDEC = previousNumber1.print1(10);
+		resultHEX = previousNumber1.print1(16);
+		resultBIN = previousNumber1.print1(2);
 		result = resultBIN;
 		nearestOperator = "";
 		isNewLife1 = true;
@@ -454,13 +455,13 @@ void calculationModel::calculatorHandleEvent(String^ buttonTitle)
 		resultBIN = "";
 		resultDEC = "";
 		resultHEX = "";
-		previousNumberManaged.unmangedQInt = Number0.unmangedQInt;
+		previousNumberManaged = Number0;
 	}
 
 
 }
 
-void calculationModel::handleOperator()
+void calculatorUnmanaged::handleOperator()
 {
 	if (result == "" || result == ".") {
 
@@ -474,25 +475,27 @@ void calculationModel::handleOperator()
 
 			}
 			else {
-				
-				QIntManaged temp = Number0;
-				temp.unmangedQInt->input(result, 2);
+
+				QInt temp = Number0;
+				temp.input(result, 2);
+				previousNumber1 = previousNumber1 + temp;
 				//previousNumber1.unmangedQInt = (previousNumber1.unmangedQInt + previousNumberManaged.unmangedQInt);
 				//previousNumber1.unmangedQInt = previousNumber1.unmangedQInt - temp.unmangedQInt;
 				//previousNumber1.unmangedQInt = previousNumber1.unmangedQInt->plus(temp.unmangedQInt);
-				previousNumber1 = previousNumber1 + temp;
-	
+				
+
 
 			}
-			
+
 		}
 		else if (nearestOperator == "-") {
 			if (!Type1) {
 
 			}
 			else {
-				QIntManaged temp = Number0;
-				temp.unmangedQInt->input(result, 2);
+				QInt temp = Number0;
+				temp.input(result, 2);
+				previousNumber1 = previousNumber1 - temp;
 				//previousNumber1.unmangedQInt = previousNumber1.unmangedQInt->tru(temp.unmangedQInt);
 			}
 			//previousNumber -= Double(result)!
@@ -502,7 +505,9 @@ void calculationModel::handleOperator()
 
 			}
 			else {
-
+				QInt temp = Number0;
+				temp.input(result, 2);
+				previousNumber1 = previousNumber1 * temp;
 			}
 			//previousNumber *= Double(result)!
 		}
@@ -516,21 +521,34 @@ void calculationModel::handleOperator()
 			//previousNumber /= Double(result)!
 		}
 		else if (nearestOperator == "AND") {
-
+			QInt temp = Number0;
+			temp.input(result, 2);
+			previousNumber1 = previousNumber1 & temp;
 		}
 		else if (nearestOperator == "OR") {
-
+			QInt temp = Number0;
+			temp.input(result, 2);
+			previousNumber1 = previousNumber1 | temp;
 		}
 		else if (nearestOperator == "XOR") {
-
+			QInt temp = Number0;
+			temp.input(result, 2);
+			previousNumber1 = previousNumber1 ^ temp;
 		}
 		else if (nearestOperator == "NOT") {
-
+			
+			previousNumber1.input(result, 2);
+			previousNumber1 = ~previousNumber1;
 		}
 		else if (nearestOperator == "<<") {
+			unsigned int temp = 0;
+			previousNumber1 = previousNumber1 << temp;
 
 		}
 		else if (nearestOperator == ">>") {
+			unsigned int temp = 0;
+			//temp = (unsigned int)result;
+			previousNumber1 = previousNumber1 >> temp;
 
 		}
 		else if (nearestOperator == "rol") {
@@ -541,13 +559,16 @@ void calculationModel::handleOperator()
 		}
 		else {
 			//previousNumber = Double(result)!
-			previousNumber1.unmangedQInt->input(result, 2);
+			
+			String^ Inp = gcnew String(result.c_str());
+			
+			previousNumber1.input(Inp, 2);
 		}
 	}
 	//throw gcnew System::NotImplementedException();
 }
 
-void calculationModel::updateResult(String^ buttonTitle)
+void calculatorUnmanaged::updateResult(std::string buttonTitle)
 {
 	if (buttonTitle == "DEC" || buttonTitle == "BIN" || buttonTitle == "HEX") {
 		if (buttonTitle == "DEC") {
@@ -559,42 +580,46 @@ void calculationModel::updateResult(String^ buttonTitle)
 		else if (buttonTitle == "BIN") {
 			result = resultBIN;
 		}
-	}else if (Type1) {
+	}
+	else if (Type1) {
 		if (isBin) {
 			resultBIN += buttonTitle;
 			result = resultBIN;
-
-			previousNumberManaged.unmangedQInt->input(result, 2);
-			resultDEC = previousNumberManaged.unmangedQInt->print(10);
-			resultHEX = previousNumberManaged.unmangedQInt->print(16);
+			
+			String^ Inp = gcnew String(result.c_str());
+			
+			previousNumberManaged.input(Inp, 2);
+			resultDEC = previousNumberManaged.print1(10);
+			resultHEX = previousNumberManaged.print1(16);
 		}
 		else if (isHex) {
 			resultHEX += buttonTitle;
-			result = resultHEX;
+			String^ Inp = gcnew String(result.c_str());
 
-			previousNumberManaged.unmangedQInt->input(result, 16);
-			resultDEC = previousNumberManaged.unmangedQInt->print(10);
-			resultBIN = previousNumberManaged.unmangedQInt->print(2);
+			previousNumberManaged.input(Inp, 16);
+			resultDEC = previousNumberManaged.print1(10);
+			resultBIN = previousNumberManaged.print1(2);
 		}
 		else {
 			resultDEC += buttonTitle;
 			result = resultDEC;
+			String^ Inp = gcnew String(result.c_str());
 
-			previousNumberManaged.unmangedQInt->input(result, 10);
-			resultBIN = previousNumberManaged.unmangedQInt->print(2);
-			resultHEX = previousNumberManaged.unmangedQInt->print(16);
+			previousNumberManaged.input(Inp, 10);
+			resultBIN = previousNumberManaged.print1(2);
+			resultHEX = previousNumberManaged.print1(16);
 		}
 	}
 	else {
 		if (isBin) {
-			
+
 		}
 		else {
-			
+
 		}
 	}
-	
-	
-	
+
+
+
 	//throw gcnew System::NotImplementedException();
 }

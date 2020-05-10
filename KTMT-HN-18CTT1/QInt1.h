@@ -1,17 +1,15 @@
 #pragma once
-#include "Header.h"
-#include "Bit.h"
+#include "Task1/Header.h"
+#include "Task1/Bit.h"
 //#include <msclr\marshal_cppstd.h>
 
 using namespace System;
 using namespace System::Windows::Forms;
 using System::Runtime::InteropServices::Marshal;
-//using namespace msclr::interop;
 
-class QInt {
-	//unsigned int data[4];
-public:
+class QInt1 {
 	unsigned int data[4];
+public:
 	///
 	///
 	///
@@ -26,35 +24,15 @@ public:
 	}
 	void setMode(int mode);
 	void input(System::String^ inp, int mode);
-	void input(std::string inp, int mode);
 	String^ print(int mode);
-	std::string print1(int mode);
-	//QInt* plus(QInt* param);
-	//QInt* tru(QInt* param);
-	//QInt* nga(QInt* x)
-	//{
-	//	QInt* res;
-	//	for (int i = 3; i >= 0; i--) {//chay cho tung block data
-	//		res->data[i] = 0;
-	//		res->data[i] = ~data[i];
-	//	}
-	//	return res;
-	//}
-	//void operator=(QInt* param)
-	//{
-	//	for (int i = 0; i < 4; i++)
-	//	{
-	//		data[i] = param->data[i];
-	//	}
-	//}
+	
 	///
 	///
 	///End UI
-
 	enum class mode { binary, decimal, hexadecimal };
 	mode md;//MODE ma User dang thao tac -> moi ket qua se hien theo he cua mode
-	QInt();
-	~QInt();
+	QInt1();
+	~QInt1();
 
 	unsigned int MulAdd(const unsigned int& mul, const unsigned int add);// xu li du lieu vao cho data[]
 	//-----------------HELPER-----------------
@@ -87,9 +65,9 @@ public:
 		return data[i];
 	}
 
-	QInt operator+(QInt param);
-	QInt operator-(QInt param);
-	QInt operator*(QInt param);
+	QInt operator+(QInt);
+	QInt operator-(QInt);
+	QInt operator*(QInt);
 	QInt operator/(QInt);
 	void func_MathOperator()
 	{

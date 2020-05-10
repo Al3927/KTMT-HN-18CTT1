@@ -3,6 +3,7 @@
 #include <iostream>
 //#include "Header.h"
 #include "Task1/QIntManaged.h"
+#include "calculatorUnmanaged.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -10,6 +11,10 @@ using namespace System::Windows::Forms;
 ref class calculationModel
 {
 public:
+	static calculatorUnmanaged* Calculator = new calculatorUnmanaged();
+
+
+	//BO TOAN BO phan duoi va trong file cpp
 	//Type 1 = true, type 2 = false
 	bool Type1 = true;
 	bool isHex = false;

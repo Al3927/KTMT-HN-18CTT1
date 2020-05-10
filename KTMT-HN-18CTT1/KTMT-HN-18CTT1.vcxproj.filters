@@ -36,6 +36,12 @@
     <ClCompile Include="Task1\QIntManaged.cpp">
       <Filter>Task 1</Filter>
     </ClCompile>
+    <ClCompile Include="QInt1.cpp">
+      <Filter>Task 1</Filter>
+    </ClCompile>
+    <ClCompile Include="calculatorUnmanaged.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -55,6 +61,12 @@
     </ClInclude>
     <ClInclude Include="Task1\QIntManaged.h">
       <Filter>Task 1</Filter>
+    </ClInclude>
+    <ClInclude Include="QInt1.h">
+      <Filter>Task 1</Filter>
+    </ClInclude>
+    <ClInclude Include="calculatorUnmanaged.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

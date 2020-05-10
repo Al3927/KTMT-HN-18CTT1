@@ -12,6 +12,7 @@ namespace KTMTHN18CTT1 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using System::Runtime::InteropServices::Marshal;
 
 	/// <summary>
 	/// Summary for MyForm
@@ -609,12 +610,11 @@ namespace KTMTHN18CTT1 {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 		Button^ x = (Button^)sender;
+		//this->calculator.calculatorHandleEvent(x->Text);
 
-		this->calculator.calculatorHandleEvent(x->Text);
-		//label1->Text = calculator.result;
+		this->calculator.Calculator->calculatorHandleEvent(x->Text);
 		UpdateViewFromModel();
-		//Button x = sender as Button;
-		//label1->Text += x->Text;
+		
 		if (x->Text == "BIN") {
 			isBin = true;
 			isHex = false;
@@ -775,11 +775,22 @@ namespace KTMTHN18CTT1 {
 	}
 	private: System::Void UpdateViewFromModel() {
 
-		label1->Text = calculator.result;
+		String^ Out = gcnew String(calculator.Calculator->result.c_str());
+		String^ Out1 = gcnew String(calculator.Calculator->resultDEC.c_str());
+		String^ Out2 = gcnew String(calculator.Calculator->resultHEX.c_str());
+		String^ Out3 = gcnew String(calculator.Calculator->resultBIN.c_str());
+		
+		label1->Text = Out;
 		//4: Dec 3: Hex 6:Bin
-		label4->Text = calculator.resultDEC;
-		label3->Text = calculator.resultHEX;
-		label6->Text = calculator.resultBIN;
+		label4->Text = Out1;
+		label3->Text = Out2;
+		label6->Text = Out3;
+
+		//label1->Text = calculator.result;
+		////4: Dec 3: Hex 6:Bin
+		//label4->Text = calculator.resultDEC;
+		//label3->Text = calculator.resultHEX;
+		//label6->Text = calculator.resultBIN;
 	}
 
 
