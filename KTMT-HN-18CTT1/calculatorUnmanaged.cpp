@@ -307,7 +307,16 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 			}
 
 			nearestOperator = "NOT";
-			isNewLife = true;
+			
+			handleOperator();
+			//result = String(previousNumber1.)
+			resultDEC = previousNumber1.print1(10);
+			resultHEX = previousNumber1.print1(16);
+			resultBIN = previousNumber1.print1(2);
+			result = resultBIN;
+			nearestOperator = "";
+			isNewLife1 = true;
+			isNewLife = false;
 
 		}
 		else if (buttonTitle == "rol" && isBin && Type1) {

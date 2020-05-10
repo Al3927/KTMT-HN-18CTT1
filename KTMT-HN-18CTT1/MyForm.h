@@ -551,7 +551,7 @@ namespace KTMTHN18CTT1 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(747, 462);
+			this->ClientSize = System::Drawing::Size(930, 462);
 			this->Controls->Add(this->button34);
 			this->Controls->Add(this->button31);
 			this->Controls->Add(this->label4);
