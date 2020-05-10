@@ -196,7 +196,7 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 			//previous = 0.0
 
 		}
-		else if (buttonTitle == "<<" && isBin && !Type1) {
+		else if (buttonTitle == "<<" && isBin && Type1) {
 
 			if (result == "" || result == ".") {
 
@@ -215,7 +215,7 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 			isNewLife = true;
 
 		}
-		else if (buttonTitle == ">>" && isBin && !Type1) {
+		else if (buttonTitle == ">>" && isBin && Type1) {
 
 			if (result == "" || result == ".") {
 
@@ -234,7 +234,7 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 			isNewLife = true;
 
 		}
-		else if (buttonTitle == "AND" && isBin && !Type1) {
+		else if (buttonTitle == "AND" && isBin && Type1) {
 
 			if (result == "" || result == ".") {
 
@@ -253,7 +253,7 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 			isNewLife = true;
 
 		}
-		else if (buttonTitle == "OR" && isBin && !Type1) {
+		else if (buttonTitle == "OR" && isBin && Type1) {
 
 			if (result == "" || result == ".") {
 
@@ -272,7 +272,7 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 			isNewLife = true;
 
 		}
-		else if (buttonTitle == "XOR" && isBin && !Type1) {
+		else if (buttonTitle == "XOR" && isBin && Type1) {
 
 			if (result == "" || result == ".") {
 
@@ -291,7 +291,7 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 			isNewLife = true;
 
 		}
-		else if (buttonTitle == "NOT" && isBin && !Type1) {
+		else if (buttonTitle == "NOT" && isBin && Type1) {
 
 			if (result == "" || result == ".") {
 
@@ -310,7 +310,7 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 			isNewLife = true;
 
 		}
-		else if (buttonTitle == "rol" && isBin && !Type1) {
+		else if (buttonTitle == "rol" && isBin && Type1) {
 
 			if (result == "" || result == ".") {
 
@@ -329,7 +329,7 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 			isNewLife = true;
 
 		}
-		else if (buttonTitle == "ror" && isBin && !Type1) {
+		else if (buttonTitle == "ror" && isBin && Type1) {
 
 			if (result == "" || result == ".") {
 
