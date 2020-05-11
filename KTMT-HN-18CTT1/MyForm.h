@@ -24,6 +24,7 @@ namespace KTMTHN18CTT1 {
 		calculationModel calculator;
 		bool isBin = false;
 		bool isHex = false;
+		bool isBinOperator = false;
 
 		MyForm(void)
 		{
@@ -615,6 +616,11 @@ namespace KTMTHN18CTT1 {
 		this->calculator.Calculator->calculatorHandleEvent(x->Text);
 		UpdateViewFromModel();
 		
+		if (isBinOperator && (x->Text == "=" || x->Text == "AC")) {
+			isBinOperator = false;
+			isBin = true;
+		}
+
 		if (x->Text == "BIN") {
 			isBin = true;
 			isHex = false;
@@ -623,9 +629,12 @@ namespace KTMTHN18CTT1 {
 			isHex = true;
 			isBin = false;
 		}
-		else if (x->Text == "DEC") {
+		else if (x->Text == "DEC" || x->Text == "<<" || x->Text == ">>" || x->Text == "rol" || x->Text == "ror") {
 			isBin = false;
 			isHex = false;
+			if (x->Text == "<<" || x->Text == ">>" || x->Text == "rol" || x->Text == "ror") {
+				isBinOperator = true;
+			}
 		}
 		UpdateIsHEX();
 		UpdateIsBIN();

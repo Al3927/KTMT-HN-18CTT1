@@ -782,28 +782,39 @@ QInt QInt::operator~()
 }
 QInt QInt::operator<<(unsigned int l)
 {
+
 	QInt temp = *this;
 	QInt res;
+
 	if (l == 0) {
 		return temp;
 	}
+
 	if (l > 127 || l < 0) {
 		//exception
 	}
-	for (unsigned int i = 0; i < l; i++) {//lap lai L lan de shift L bit
+
+	//lap lai L lan de shift L bit
+	for (unsigned int i = 0; i < l; i++) {
+
 		for (unsigned int j = 0; j < 4; j++) {
-			if (j != 3) { //copy bit so 1 o data[j] bang bit so 31 o data[j+1]
+
+			//copy bit so 1 o data[j] bang bit so 31 o data[j+1]
+			if (j != 3) {
 				Bit::bitCopy(temp.data[j + 1], 31, res.data[j], 0);
 			}
-			else { //if j==3
+			else {
 				Bit::setBit0(res.data[j], 0);
 			}
-			for (unsigned int k = 1; k < 32; k++) { //copy cac bit con lai
+
+			//copy cac bit con lai
+			for (unsigned int k = 1; k < 32; k++) {
 				Bit::bitCopy(temp.data[j], k - 1, res.data[j], k);
 			}
 		}
 		temp = res;
 	}
+
 	return res;
 }
 QInt QInt::operator>>(unsigned int l)

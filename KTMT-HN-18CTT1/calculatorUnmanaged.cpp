@@ -214,6 +214,9 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 			nearestOperator = "<<";
 			isNewLife = true;
 
+			//Add for <<
+			isBin = false;
+
 		}
 		else if (buttonTitle == ">>" && isBin && Type1) {
 
@@ -550,21 +553,30 @@ void calculatorUnmanaged::handleOperator()
 			previousNumber1 = ~previousNumber1;
 		}
 		else if (nearestOperator == "<<") {
+			isBin = true;
 			unsigned int temp = 0;
+			temp = std::stoi(result);
 			previousNumber1 = previousNumber1 << temp;
 
 		}
 		else if (nearestOperator == ">>") {
+			isBin = true;
 			unsigned int temp = 0;
-			//temp = (unsigned int)result;
+			temp = std::stoi(result);
 			previousNumber1 = previousNumber1 >> temp;
 
 		}
 		else if (nearestOperator == "rol") {
-
+			isBin = true;
+			unsigned int temp = 0;
+			temp = std::stoi(result);
+			previousNumber1.rol(temp);
 		}
 		else if (nearestOperator == "ror") {
-
+			isBin = true;
+			unsigned int temp = 0;
+			temp = std::stoi(result);
+			previousNumber1.ror(temp);
 		}
 		else {
 			//previousNumber = Double(result)!

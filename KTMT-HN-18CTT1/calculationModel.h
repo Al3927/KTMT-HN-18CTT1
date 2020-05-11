@@ -36,6 +36,8 @@ public:
 	bool isNewLife = true;
 	bool isNewLife1 = true; //Sau dau bang hoac vua mo ct.
 	bool isUpdateResult = false;
+
+
 	QIntManaged ppNumber;
 	QIntManaged ppNumber1;
 	calculationModel();
