@@ -21,9 +21,6 @@ calculatorUnmanaged::~calculatorUnmanaged()
 //Call This function when user touch up inside a button.
 void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 {
-	// https://github.com/Al3927/Calculator_Swift/blob/master/Calculator/Calculator.swift
-
-
 	//We use this line to cast Managed Type: String^ to standard type can use in C++: std::string
 
 	std::string buttonTitle = toStandardString(buttonTitle1);
