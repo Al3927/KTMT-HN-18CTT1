@@ -24,6 +24,7 @@ namespace My1812017618120184181202091812021518120291 {
 		bool isBin = false;
 		bool isHex = false;
 		bool isBinOperator = false;
+		bool isType2 = false;
 
 		MyForm(void)
 		{
@@ -628,16 +629,70 @@ namespace My1812017618120184181202091812021518120291 {
 			isHex = true;
 			isBin = false;
 		}
-		else if (x->Text == "DEC" || x->Text == "<<" || x->Text == ">>" || x->Text == "rol" || x->Text == "ror") {
-			isBin = false;
-			isHex = false;
-			if (x->Text == "<<" || x->Text == ">>" || x->Text == "rol" || x->Text == "ror") {
-				isBinOperator = true;
+		else if (x->Text == "DEC" || (!isType2 &&(x->Text == "<<" || x->Text == ">>" || x->Text == "rol" || x->Text == "ror"))) {
+			if (x->Text == "DEC" && isType2 && isBin) {
+				//Do Nothing..
+				//Cause: when it is Type 2 and bin, dec is very weird with * and ^ in that, so we can input more.
+				//If we want to use dec in type 2 to cast to bin in this time, just touch "AC" to do that.
 			}
+			else {
+				isBin = false;
+				isHex = false;
+				if (x->Text == "<<" || x->Text == ">>" || x->Text == "rol" || x->Text == "ror") {
+					isBinOperator = true;
+				}
+			}
+			
+			
 		}
+		else if (x->Text == ".") {
+			isType2 = true;
+		}
+		else if (isType2 && x->Text == "AC") {
+			isType2 = false;
+		}
+
+		
 		UpdateIsHEX();
 		UpdateIsBIN();
+		UpdateIsType2();
 		
+		
+	}
+	private: System::Void UpdateIsType2() {
+		if (isType2) {
+			this->button12->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			if (isBin) {
+				//operator button
+				this->button13->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+				//this->button13->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+				this->button14->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+				//this->button14->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+				this->button15->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+				//this->button15->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+				this->button16->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+				//this->button16->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+				this->button18->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+				//this->button18->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+				this->button19->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+				//this->button19->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+				this->button20->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+				//this->button20->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+				this->button21->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+				//this->button21->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+				this->button17->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+				//this->button17->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+				this->button22->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+				//this->button22->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+				this->button31->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+				//this->button31->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+				this->button34->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+				//this->button34->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			}
+		}
+		else {
+			this->button12->ForeColor = System::Drawing::SystemColors::ControlText;
+		}
 	}
 	private: System::Void UpdateIsHEX() {
 
@@ -808,59 +863,4 @@ private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e)
 };
 }
 
-
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
-
-	/// <summary>
-	/// Summary for MyForm
-	/// </summary>
-	public ref class MyForm : public System::Windows::Forms::Form
-	{
-	public:
-		MyForm(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-		}
-
-	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		~MyForm()
-		{
-			if (components)
-			{
-				delete components;
-			}
-		}
-
-	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		System::ComponentModel::Container ^components;
-
-#pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		void InitializeComponent(void)
-		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"MyForm";
-			this->Padding = System::Windows::Forms::Padding(0);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-		}
-#pragma endregion
-	};
 

@@ -8,12 +8,6 @@ calculatorUnmanaged::calculatorUnmanaged()
 	Number0.input("0", 2);
 	Number0dec.input("0", 10);
 	Number0hex.input("0", 16);
-	//previousNumber1 = Number0;
-
-	//ppNumber.unmangedQInt = 0;
-	//ppNumber.unmangedQInt += 1;
-	//ppNumber1.unmangedQInt = 0;
-	//ppNumber1.unmangedQInt += 1;
 
 	//std::cout << "init calculator!!!";
 	//throw gcnew System::NotImplementedException();
@@ -24,7 +18,7 @@ calculatorUnmanaged::~calculatorUnmanaged()
 	//throw gcnew System::NotImplementedException();
 }
 
-//Goi ham nay khi nhan vao mot button
+//Call This function when user touch up inside a button.
 void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 {
 	// https://github.com/Al3927/Calculator_Swift/blob/master/Calculator/Calculator.swift
@@ -362,10 +356,17 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 
 		}
 		else if (buttonTitle == "DEC") {
-			isHex = false;
-			isBin = false;
-			isNewLife = false;
-			updateResult(buttonTitle);
+			if (!Type1 && isBin) {
+
+				
+			}
+			else {
+				isHex = false;
+				isBin = false;
+				isNewLife = false;
+				updateResult(buttonTitle);
+			}
+			
 		}
 		else if (buttonTitle == "BIN") {
 			isHex = false;
@@ -397,18 +398,9 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 					if (isNewLife1 && nearestOperator == "") {
 						previousNumber1 = Number0hex;
 					}
-					//result += buttonTitle;
+					
 					updateResult(buttonTitle);
 					isNewLife = false;
-
-					//Xu li PreviousNumberManaged
-					/*if (Type1) {
-
-					}
-					else {
-
-					}*/
-					////
 				}
 			}
 		}
@@ -419,8 +411,14 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 
 			//xu li nhap so 2->9
 			if (!Type1) {
-				updateResult(buttonTitle);
-				isNewLife = false;
+				if (isBin) {
+					//Do nothing...
+				}
+				else {
+					updateResult(buttonTitle);
+					isNewLife = false;
+				}
+				
 			}
 			else {
 
@@ -465,36 +463,39 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 		
 	}
 	else if (buttonTitle == "=") { // buttonTitle == "="
-		handleOperator();
-		//result = String(previousNumber1.)
+		
 		if (!Type1) {
-
+			//Test
+			//previousNumber2.ScanQFloat(2, "11000000000011001000000010110111110001000001001101010101010001110101101000110001101001001011110110111010000010100101001001101001");
+			//previousNumber2.BintoDec(resultDEC);
+			//previousNumber2.DectoBin(result, resultBIN);
 		}
 		else {
+			handleOperator();
+
 			resultDEC = previousNumber1.print1(10);
 			resultHEX = previousNumber1.print1(16);
 			resultBIN = previousNumber1.print1(2);
+
+			if (nearestOperator == "<<" || nearestOperator == ">>" || nearestOperator == "rol" || nearestOperator == "ror") {
+				isBin = true;
+			}
+
+			if (isBin) {
+				result = resultBIN;
+			}
+			else if (isHex) {
+				result = resultHEX;
+			}
+			else {
+				result = resultDEC;
+			}
+
+			nearestOperator = "";
+			isNewLife1 = true;
+			isNewLife = false;
 		}
 		
-
-		if (nearestOperator == "<<" || nearestOperator == ">>" || nearestOperator == "rol" || nearestOperator == "ror") {
-			isBin = true;
-		}
-
-		if (isBin) {
-			result = resultBIN;
-		}
-		else if (isHex) {
-			result = resultHEX;
-		}
-		else {
-			result = resultDEC;
-		}
-		
-		nearestOperator = "";
-		isNewLife1 = true;
-		isNewLife = false;
-		//updateResult();
 	}
 
 	if (isNewLife) {
@@ -516,7 +517,7 @@ void calculatorUnmanaged::handleOperator()
 	else {
 
 		if (nearestOperator == "+") {
-			//previousNumber += Double(result)!
+			
 			if (!Type1)
 			{
 
@@ -526,12 +527,7 @@ void calculatorUnmanaged::handleOperator()
 				QInt temp = Number0;
 				temp.input(result, 2);
 				previousNumber1 = previousNumber1 + temp;
-				//previousNumber1.unmangedQInt = (previousNumber1.unmangedQInt + previousNumberManaged.unmangedQInt);
-				//previousNumber1.unmangedQInt = previousNumber1.unmangedQInt - temp.unmangedQInt;
-				//previousNumber1.unmangedQInt = previousNumber1.unmangedQInt->plus(temp.unmangedQInt);
 				
-
-
 			}
 
 		}
@@ -543,9 +539,9 @@ void calculatorUnmanaged::handleOperator()
 				QInt temp = Number0;
 				temp.input(result, 2);
 				previousNumber1 = previousNumber1 - temp;
-				//previousNumber1.unmangedQInt = previousNumber1.unmangedQInt->tru(temp.unmangedQInt);
+				
 			}
-			//previousNumber -= Double(result)!
+			
 		}
 		else if (nearestOperator == "x") {
 			if (!Type1) {
@@ -556,7 +552,7 @@ void calculatorUnmanaged::handleOperator()
 				temp.input(result, 2);
 				previousNumber1 = previousNumber1 * temp;
 			}
-			//previousNumber *= Double(result)!
+			
 		}
 		else if (nearestOperator == "÷") {
 			if (!Type1) {
@@ -567,7 +563,7 @@ void calculatorUnmanaged::handleOperator()
 				temp.input(result, 2);
 				previousNumber1 = previousNumber1 / temp;
 			}
-			//previousNumber /= Double(result)!
+			
 		}
 		else if (nearestOperator == "AND") {
 			QInt temp = Number0;
@@ -618,13 +614,13 @@ void calculatorUnmanaged::handleOperator()
 		else {
 			if (!Type1) {
 				if (isBin) {
-					previousNumber2.DectoBin(result, resultBIN);
+					previousNumber2.ScanQFloat(2, result);
 				}
 				else if (isHex) {
 
 				}
 				else {
-					previousNumber2.BintoDec(resultDEC);
+					previousNumber2.ScanQFloat(10, result);
 				}
 			}
 			else {
@@ -706,11 +702,12 @@ void calculatorUnmanaged::updateResult(std::string buttonTitle)
 			}
 			result = resultBIN;
 			resultHEX = "";
+			previousNumber2.ScanQFloat(2, result);
 			if (buttonTitle != ".") {
 				previousNumber2.BintoDec(resultDEC);
 			}
 			else {
-				resultDEC += buttonTitle;
+				//resultDEC += buttonTitle;
 
 			}
 			
@@ -727,7 +724,7 @@ void calculatorUnmanaged::updateResult(std::string buttonTitle)
 				previousNumber2.DectoBin(result, resultBIN);
 			}
 			else {
-				resultBIN += buttonTitle;
+				//resultBIN += buttonTitle;
 			}
 		}
 	}
