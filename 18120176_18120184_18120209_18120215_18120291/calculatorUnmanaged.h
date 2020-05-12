@@ -49,16 +49,15 @@ public:
 	bool isNewLife = true;
 	bool isNewLife1 = true; //Sau dau bang hoac vua mo ct.
 	bool isUpdateResult = false;
-	//QInt ppNumber;
-	//QInt ppNumber1;
+	
 	calculatorUnmanaged();
 	~calculatorUnmanaged();
 
-	//Goi ham nay khi nhan vao mot button
+	//Call This function when user touch up inside a button.
 	void calculatorHandleEvent(String^ buttonTitle);
 	void handleOperator();
 
-	//Goi ham nay khi ket qua thay doi
+	//Call This function when result changed.
 	void updateResult(std::string buttonTitle);
 
 private:
