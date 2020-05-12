@@ -60,31 +60,12 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 
 			}
 			else {
-				/*
-				Xu ly neu nhap 0 dau, can != giua 2 QInt
-				if (previousNumber1.unmangedQInt == 0) {
-					QIntManaged temp;
-					temp.unmangedQInt->input(resultBIN, 2);
-					QIntManaged temp1;
-					temp1.unmangedQInt->input("0", 2);
-					if (temp != temp1) {
-						ppNumber1.unmangedQInt->input("0", 2);
-					}
-					previousNumber1.unmangedQInt->input(resultBIN, 2);
-				}
-				else {
-					handleOperator();
-				}
-				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-				if (previousNumber1.unmangedQInt != 0 && ppNumber1.unmangedQInt == 0) {
-					previousNumber1.unmangedQInt = 0;
-					ppNumber1.unmangedQInt += 1;
-				}*/
+				
 
 				if (Type1)
 				{
 					//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-					if (previousNumber1 == Number0) {
+					if (isNewLife1 && previousNumber1 == Number0) {
 						previousNumber1.input(resultBIN, 2);
 					}
 					else {
@@ -107,7 +88,7 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 				if (Type1)
 				{
 					//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
-					if (previousNumber1 == Number0) {
+					if (isNewLife1 && previousNumber1 == Number0) {
 						previousNumber1.input(resultBIN, 2);
 					}
 					else {
@@ -234,7 +215,7 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 
 			}
 			else {
-				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, rieng nhan va chia se khac (do co truong hop nhap 0 dau)
+				//neu previous = 0.0 xu li: previous = result nguoc lai handle oprator, 
 				if (previousNumber1 == Number0) {
 					previousNumber1.input(resultBIN, 2);
 				}
@@ -357,8 +338,10 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 		}
 		else if (buttonTitle == "DEC") {
 			if (!Type1 && isBin) {
-
 				
+				//Do nothing...
+				//Cause: when it is Type 2 and bin, dec is very weird with * and ^ in that, so we can not input more.
+				//If we want to use dec in type 2 to cast to bin in this time, just touch "AC" to do that.
 			}
 			else {
 				isHex = false;
@@ -465,10 +448,11 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 	else if (buttonTitle == "=") { // buttonTitle == "="
 		
 		if (!Type1) {
-			//Test
+			//For clearly, Type 2 will not use operator "=" because it just have two function to cast between dec and bin, no more.
+			
+			//If you want, uncomment this for Test
 			//previousNumber2.ScanQFloat(2, "11000000000011001000000010110111110001000001001101010101010001110101101000110001101001001011110110111010000010100101001001101001");
-			//previousNumber2.BintoDec(resultDEC);
-			//previousNumber2.DectoBin(result, resultBIN);
+			
 		}
 		else {
 			handleOperator();

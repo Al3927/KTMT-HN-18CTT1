@@ -23,7 +23,12 @@ void QInt::input(std::string tempInput, int mode)
 	}
 
 	//strip all non-numeric characters
-	tempInput.erase(std::remove_if(tempInput.begin(), tempInput.end(), NaN), tempInput.end());
+	if (md == QInt::mode::hexadecimal) {
+		tempInput.erase(std::remove_if(tempInput.begin(), tempInput.end(), NaN_hex), tempInput.end());
+	}
+	else {
+		tempInput.erase(std::remove_if(tempInput.begin(), tempInput.end(), NaN), tempInput.end());
+	}
 
 	//if more than 128 characters after stripping, use only rightmost 128 characters
 	if (tempInput.length() > 128) {
@@ -343,7 +348,12 @@ void QInt::input()
 	}
 
 	//strip all non-numeric characters
-	tempInput.erase(std::remove_if(tempInput.begin(), tempInput.end(), NaN), tempInput.end());
+	if (md == QInt::mode::hexadecimal) {
+		tempInput.erase(std::remove_if(tempInput.begin(), tempInput.end(), NaN_hex), tempInput.end());
+	}
+	else {
+		tempInput.erase(std::remove_if(tempInput.begin(), tempInput.end(), NaN), tempInput.end());
+	}
 
 	//if more than 128 characters after stripping, use only rightmost 128 characters
 	if (tempInput.length() > 128) {

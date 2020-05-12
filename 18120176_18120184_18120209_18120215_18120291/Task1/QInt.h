@@ -12,6 +12,10 @@ inline bool NaN(char ch) {
 	return !('0' <= ch && ch <= '9');
 }
 
+inline bool NaN_hex(char ch) {
+	return !(('0' <= ch && ch <= '9') || ('a' <= ch && ch <= 'f') || ('A' <= ch && ch <= 'F'));
+}
+
 class QInt {
 private:
 	unsigned int data[4];

@@ -616,7 +616,7 @@ namespace My1812017618120184181202091812021518120291 {
 		this->calculator.Calculator->calculatorHandleEvent(x->Text);
 		UpdateViewFromModel();
 		
-		//After Touch "=" or "AC" to excute BinOperator which is need Dec UI we upadate UI for Bin again.
+		//After Touch "=" or "AC" to excute BinOperator, which is need Dec UI, we upadate UI for Bin again.
 		if (isBinOperator && (x->Text == "=" || x->Text == "AC")) {
 			isBinOperator = false;
 			isBin = true;
