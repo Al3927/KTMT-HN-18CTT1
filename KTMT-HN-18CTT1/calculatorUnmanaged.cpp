@@ -30,30 +30,25 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 	// https://github.com/Al3927/Calculator_Swift/blob/master/Calculator/Calculator.swift
 
 
+	//We use this line to cast Managed Type: String^ to standard type can use in C++: std::string
+
 	std::string buttonTitle = toStandardString(buttonTitle1);
 
-	//result += "1";
-	/*if (Type1) {
 
-	}*/
+	//What's in this function:
 
-	//Example about how to use the variable unmanagedQUint.
-	/*
-	if (buttonTitle == "DEC") {
-		previousNumber1.unmangedQInt->setMode(10);
-	}
-	*/
+	//result: It's the model for result label in View. In hold what's user input by button.
 
-	//Giai thich:
-
-	//result: Gia tri label. Label value
 	//Cu the: Gia tri do nguoi dung nhap vao trong moi phien (life). Moi phien (life cycle) bat dau khi chuong trinh chay/thuc hien phep tinh/AC/./=
 	//Va tiep tuc den khi bat dau phien moi hoac ket thuc chuong trinh.
 
-	//previousNumber: Gia tri so, luu ket qua qua moi phep tinh. 
+	//There are two life cycle: "lifecycle" and "lifecycle1". "lifecycle" use to reset result value after excute operation. 
+	//"lyfecycle1" is a "real life cycle", is is true after user click "=" or when the program start.
 
-	//Voi kieu Double va std::string ta co the su dung bien result qua lai giua Double va String 
-	//tuy nhien QInt khong co type cast/convert sang String^ nen pahi them mot bien nua de giu gia tri
+	//previousNumbe1r: QInt, hold value after excute operation.
+
+	//Use previousNumberManaged to hold value of result and cast them to the right mode: 2,10 or 16.
+
 	if (isNewLife1 && buttonTitle!= "BIN" && buttonTitle != "DEC" && buttonTitle != "HEX") {
 		Type1 = true;
 		result = "";
