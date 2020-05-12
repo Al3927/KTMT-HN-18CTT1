@@ -24,8 +24,12 @@ public:
 	}
 	//Type 1 = true, type 2 = false
 	bool Type1 = true;
+
+	
 	bool isHex = false;
 	bool isBin = false;
+
+	//Comment about these below properties are in calculatorHandleEvent method.
 
 	std::string nearestOperator = "";
 	std::string result = "";
@@ -47,7 +51,7 @@ public:
 
 	double previousNumber = 0.0;
 	bool isNewLife = true;
-	bool isNewLife1 = true; //Sau dau bang hoac vua mo ct.
+	bool isNewLife1 = true; 
 	bool isUpdateResult = false;
 	
 	calculatorUnmanaged();
