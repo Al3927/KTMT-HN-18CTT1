@@ -611,11 +611,12 @@ namespace My1812017618120184181202091812021518120291 {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 		Button^ x = (Button^)sender;
-		//this->calculator.calculatorHandleEvent(x->Text);
+		
 
 		this->calculator.Calculator->calculatorHandleEvent(x->Text);
 		UpdateViewFromModel();
 		
+		//After Touch "=" or "AC" to excute BinOperator which is need Dec UI we upadate UI for Bin again.
 		if (isBinOperator && (x->Text == "=" || x->Text == "AC")) {
 			isBinOperator = false;
 			isBin = true;
@@ -632,7 +633,7 @@ namespace My1812017618120184181202091812021518120291 {
 		else if (x->Text == "DEC" || (!isType2 &&(x->Text == "<<" || x->Text == ">>" || x->Text == "rol" || x->Text == "ror"))) {
 			if (x->Text == "DEC" && isType2 && isBin) {
 				//Do Nothing..
-				//Cause: when it is Type 2 and bin, dec is very weird with * and ^ in that, so we can input more.
+				//Cause: when it is Type 2 and bin, dec is very weird with * and ^ in that, so we can not input more.
 				//If we want to use dec in type 2 to cast to bin in this time, just touch "AC" to do that.
 			}
 			else {
