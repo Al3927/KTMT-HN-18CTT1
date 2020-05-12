@@ -129,6 +129,8 @@
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Task1\Bit.cpp" />
     <ClCompile Include="Task1\QInt.cpp" />
+    <ClCompile Include="Task2\BigFloat.cpp" />
+    <ClCompile Include="Task2\QFloat.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="calculationModel.h" />
@@ -139,6 +141,8 @@
     <ClInclude Include="Task1\Bit.h" />
     <ClInclude Include="Task1\Header.h" />
     <ClInclude Include="Task1\QInt.h" />
+    <ClInclude Include="Task2\BigFloat.h" />
+    <ClInclude Include="Task2\QFloat.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">

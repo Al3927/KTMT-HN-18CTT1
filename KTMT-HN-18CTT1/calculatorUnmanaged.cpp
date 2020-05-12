@@ -30,7 +30,7 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 	// https://github.com/Al3927/Calculator_Swift/blob/master/Calculator/Calculator.swift
 
 
-	//We use this line to cast Managed Type: String^ to standard type can use in C++: std::string
+	//We use this line to cast Managed Type: String^ to standard type can easily use in C++: std::string
 
 	std::string buttonTitle = toStandardString(buttonTitle1);
 
@@ -39,13 +39,12 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 
 	//result: It's the model for result label in View. In hold what's user input by button.
 
-	//Cu the: Gia tri do nguoi dung nhap vao trong moi phien (life). Moi phien (life cycle) bat dau khi chuong trinh chay/thuc hien phep tinh/AC/./=
-	//Va tiep tuc den khi bat dau phien moi hoac ket thuc chuong trinh.
-
 	//There are two life cycle: "lifecycle" and "lifecycle1". "lifecycle" use to reset result value after excute operation. 
-	//"lyfecycle1" is a "real life cycle", is is true after user click "=" or when the program start.
+	//"lyfecycle1" is a "real life cycle", it is true after user click "=" or when the program start.
 
-	//previousNumbe1r: QInt, hold value after excute operation.
+	//As we can see, result hold value during "life cycle 1" and renew when a new "life cycle 1" is start.
+
+	//previousNumber1: QInt, hold value which user input in QINT Type during program life cycle and changed after operation is excuted.
 
 	//Use previousNumberManaged to hold value of result and cast them to the right mode: 2,10 or 16.
 
