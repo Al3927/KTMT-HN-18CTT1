@@ -28,7 +28,7 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 
 	//What's in this function:
 
-	//result: It's the model for result label in View. In hold what's user input by button.
+	//result: It is the model for result label in View, hold what's user input by button.
 
 	//There are two life cycle: "lifecycle" and "lifecycle1". "lifecycle" use to reset result value after excute operation. 
 	//"lyfecycle1" is a "real life cycle", it is true after user click "=" or when the program start.
