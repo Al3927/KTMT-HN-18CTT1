@@ -2,7 +2,7 @@
 
 #include <iostream>
 //#include "Header.h"
-#include "Task1/QIntManaged.h"
+#include "Task1/QInt.h"
 #include "calculatorUnmanaged.h"
 
 using namespace System;
@@ -14,7 +14,9 @@ public:
 	static calculatorUnmanaged* Calculator = new calculatorUnmanaged();
 
 
+
 	//BO TOAN BO phan duoi va trong file cpp
+#if 0
 	//Type 1 = true, type 2 = false
 	bool Type1 = true;
 	bool isHex = false;
@@ -53,6 +55,8 @@ public:
 private:
 
 	String^ Log = "";
+
+#endif
 
 };
 

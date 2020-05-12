@@ -126,11 +126,9 @@
     <ClCompile Include="calculationModel.cpp" />
     <ClCompile Include="calculatorUnmanaged.cpp" />
     <ClCompile Include="MyForm.cpp" />
-    <ClCompile Include="QInt1.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Task1\Bit.cpp" />
     <ClCompile Include="Task1\QInt.cpp" />
-    <ClCompile Include="Task1\QIntManaged.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="calculationModel.h" />
@@ -138,11 +136,9 @@
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="QInt1.h" />
     <ClInclude Include="Task1\Bit.h" />
     <ClInclude Include="Task1\Header.h" />
     <ClInclude Include="Task1\QInt.h" />
-    <ClInclude Include="Task1\QIntManaged.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">

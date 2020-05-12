@@ -1,5 +1,6 @@
 #include "calculationModel.h"
 
+# if 0
 calculationModel::calculationModel()
 {
 	previousNumber1.unmangedQInt->setMode(10);
@@ -598,3 +599,5 @@ void calculationModel::updateResult(String^ buttonTitle)
 	
 	//throw gcnew System::NotImplementedException();
 }
+
+#endif

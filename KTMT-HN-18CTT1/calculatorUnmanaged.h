@@ -2,7 +2,7 @@
 
 #include <iostream>
 //#include "Header.h"
-#include "Task1/QIntManaged.h"
+#include "Task1/QInt.h"
 
 using namespace System;
 using namespace System::Windows::Forms;

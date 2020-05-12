@@ -8,10 +8,17 @@ using namespace System::Windows::Forms;
 using System::Runtime::InteropServices::Marshal;
 //using namespace msclr::interop;
 
+inline bool NaN(char ch) {
+	return !('0' <= ch && ch <= '9');
+}
+
 class QInt {
-	//unsigned int data[4];
-public:
+private:
 	unsigned int data[4];
+public:
+
+	enum class mode { binary, decimal, hexadecimal };
+	//unsigned int data[4];
 	///
 	///
 	///
@@ -24,46 +31,21 @@ public:
 		Marshal::FreeHGlobal(pointer);
 		return returnString;
 	}
-	void setMode(int mode);
-	void input(System::String^ inp, int mode);
+
 	void input(std::string inp, int mode);
-	String^ print(int mode);
 	std::string print1(int mode);
-	//QInt* plus(QInt* param);
-	//QInt* tru(QInt* param);
-	//QInt* nga(QInt* x)
-	//{
-	//	QInt* res;
-	//	for (int i = 3; i >= 0; i--) {//chay cho tung block data
-	//		res->data[i] = 0;
-	//		res->data[i] = ~data[i];
-	//	}
-	//	return res;
-	//}
-	//void operator=(QInt* param)
-	//{
-	//	for (int i = 0; i < 4; i++)
-	//	{
-	//		data[i] = param->data[i];
-	//	}
-	//}
+	void setMode(mode& md, int mode);
+	
 	///
 	///
 	///End UI
 
-	enum class mode { binary, decimal, hexadecimal };
-	mode md;//MODE ma User dang thao tac -> moi ket qua se hien theo he cua mode
+
+	
 	QInt();
+	QInt(unsigned int);
 	~QInt();
-
-	unsigned int MulAdd(const unsigned int& mul, const unsigned int add);// xu li du lieu vao cho data[]
-	//-----------------HELPER-----------------
-
-	//-----------------CONVERT----------------
-	void setMode();//chon mode theo enum class
-	void input(); //xu li input theo mode => lay data
-	void print();//xu li output => in data theo mode ma user da chon
-	void clear() { data[0] = data[1] = data[2] = data[3] = 0; };//Khoi tao
+	//-----------------TESTING----------------
 	void func_InToOut()
 	{
 		std::cout << "[>INPUT<]" << std::endl;
@@ -71,44 +53,7 @@ public:
 		std::cout << "[>OUTPUT<]" << std::endl;
 		print();
 	}; // function chuyen doi cac he co so voi nhau
-	void test_bitshift() {
-		std::cout << "[>INPUT<]" << std::endl;
-		input();
-		*this = *this >> 2;
-		std::cout << "[>OUTPUT<]" << std::endl;
-		print();
-	}
 
-
-
-	//----------MATH-OPERATOR---------
-	unsigned int operator[](int i)
-	{
-		return data[i];
-	}
-
-	QInt operator+(QInt param);
-	QInt operator-(QInt param);
-	QInt operator*(QInt param);
-	QInt operator/(QInt);
-	void func_MathOperator()
-	{
-		//nhap operator
-		QInt param1, param2;
-		param1.input();
-		param2.input();
-		(param1 * param2).print();
-
-	};
-
-
-
-	//---------------COMPARERATIVE-OPERATOR-----------
-	bool operator<(QInt);
-	bool operator>(QInt);
-	bool operator==(QInt);
-	bool operator<=(QInt);
-	bool operator>=(QInt);
 	void func_CompareOperator()
 	{
 		//nhap operator
@@ -117,25 +62,15 @@ public:
 		param2.input();
 		std::cout << (param1 >= param2);
 	};
-
-
-	void operator=(QInt param)
+	void func_MathOperator()
 	{
-		for (int i = 0; i < 4; i++)
-		{
-			data[i] = param.data[i];
-		}
-	}
-	//-----------------BIT-OPERATOR----------------
-	QInt operator&(QInt);
-	QInt operator|(QInt);
-	QInt operator^(QInt);
-	QInt operator~();
+		//nhap operator
+		QInt param1, param2;
+		param1.input();
+		param2.input();
+		(param1 + param2).print();
 
-	QInt operator>>(unsigned int);
-	QInt operator<<(unsigned int);
-	bool rol(unsigned int l = 1);
-	bool ror(unsigned int l = 1);
+	};
 	void func_BitOperator()
 	{
 		//nhap operator
@@ -156,5 +91,59 @@ public:
 		}
 		print();
 	};
-	//--------------EXE-FUNCTION---------------
-};/**/
+	void test_bitshift() {
+		std::cout << "[>INPUT<]" << std::endl;
+		input();
+		*this = *this >> 2;
+		std::cout << "[>OUTPUT<]" << std::endl;
+		print();
+	}
+	//-------------INPUT/OUTPUT---------------
+
+	void input(); //xu li input theo mode => lay data
+	void print(); //xu li output => in data theo mode ma user da chon
+	void clear() { data[0] = data[1] = data[2] = data[3] = 0; }; //Khoi tao
+	//----------MATH-OPERATOR---------
+	unsigned int operator[](int i) { return data[i]; }
+	QInt operator+(QInt);
+	QInt operator-(QInt);
+	QInt operator*(QInt);
+	QInt operator/(QInt);
+	//---------------COMPARERATIVE-OPERATOR-----------
+	bool operator<(QInt);
+	bool operator>(QInt);
+	bool operator==(QInt);
+	bool operator<=(QInt);
+	bool operator>=(QInt);
+	void operator=(QInt param)// gan QInt -> QInt
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			data[i] = param.data[i];
+		}
+	}
+	void operator=(int param)// gan int vao QInt
+	{
+		clear();
+		data[3] = param;
+	}
+	//-----------------BIT-OPERATOR----------------
+	QInt operator&(QInt);
+	QInt operator|(QInt);
+	QInt operator^(QInt);
+	QInt operator~();
+	QInt operator>>(unsigned int);
+	QInt operator<<(unsigned int);
+	bool rol(unsigned int l = 1);
+	bool ror(unsigned int l = 1);
+private:
+	//-----------------HELPER-----------------
+	unsigned int MulAdd(const unsigned int& mul, const unsigned int add); // xu li du lieu vao cho data[]
+	void hexInp(std::string input); //xu li dau vao dang co so 16 (Hexadecimal)
+	void binInp(std::string input); //xu li dau vao dang co so 2 (Binary)
+	void decInp(std::string input); //xu li dau vao dang co so 10 (Decimal)
+	std::string hexOut(); //xu li dau ra dang co so 16 (Hexadecimal)
+	std::string binOut(); //xu li dau ra dang co so 2 (Binary)
+	std::string decOut(); //xu li dau ra dang co so 10 (Decimal)
+	void setMode(mode& md); //chon mode theo enum class
+};

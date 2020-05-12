@@ -33,12 +33,6 @@
     <ClCompile Include="Task1\QInt.cpp">
       <Filter>Task 1</Filter>
     </ClCompile>
-    <ClCompile Include="Task1\QIntManaged.cpp">
-      <Filter>Task 1</Filter>
-    </ClCompile>
-    <ClCompile Include="QInt1.cpp">
-      <Filter>Task 1</Filter>
-    </ClCompile>
     <ClCompile Include="calculatorUnmanaged.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -57,12 +51,6 @@
       <Filter>Task 1</Filter>
     </ClInclude>
     <ClInclude Include="Task1\QInt.h">
-      <Filter>Task 1</Filter>
-    </ClInclude>
-    <ClInclude Include="Task1\QIntManaged.h">
-      <Filter>Task 1</Filter>
-    </ClInclude>
-    <ClInclude Include="QInt1.h">
       <Filter>Task 1</Filter>
     </ClInclude>
     <ClInclude Include="calculatorUnmanaged.h">

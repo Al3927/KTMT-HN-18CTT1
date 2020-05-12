@@ -3,7 +3,8 @@
 
 calculatorUnmanaged::calculatorUnmanaged()
 {
-	previousNumber1.setMode(10);
+	QInt::mode md;
+	previousNumber1.setMode(md,10);
 	Number0.input("0", 2);
 	Number0dec.input("0", 10);
 	Number0hex.input("0", 16);
@@ -53,7 +54,7 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 
 	//Voi kieu Double va std::string ta co the su dung bien result qua lai giua Double va String 
 	//tuy nhien QInt khong co type cast/convert sang String^ nen pahi them mot bien nua de giu gia tri
-	if (isNewLife1) {
+	if (isNewLife1 && buttonTitle!= "BIN" && buttonTitle != "DEC" && buttonTitle != "HEX") {
 		Type1 = true;
 		result = "";
 		resultBIN = "";
@@ -236,6 +237,8 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 			nearestOperator = ">>";
 			isNewLife = true;
 
+			isBin = false;
+
 		}
 		else if (buttonTitle == "AND" && isBin && Type1) {
 
@@ -340,6 +343,8 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 			nearestOperator = "rol";
 			isNewLife = true;
 
+			isBin = false;
+
 		}
 		else if (buttonTitle == "ror" && isBin && Type1) {
 
@@ -358,6 +363,8 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 
 			nearestOperator = "ror";
 			isNewLife = true;
+
+			isBin = false;
 
 		}
 		else if (buttonTitle == "DEC") {
@@ -447,7 +454,11 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 			//	
 			//}
 		}
-		isNewLife1 = false;
+
+		if (buttonTitle != "NOT") {
+			isNewLife1 = false;
+		}
+		
 	}
 	else if (buttonTitle == "=") { // buttonTitle == "="
 		handleOperator();
@@ -455,7 +466,21 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 		resultDEC = previousNumber1.print1(10);
 		resultHEX = previousNumber1.print1(16);
 		resultBIN = previousNumber1.print1(2);
-		result = resultBIN;
+
+		if (nearestOperator == "<<" || nearestOperator == ">>" || nearestOperator == "rol" || nearestOperator == "ror") {
+			isBin = true;
+		}
+
+		if (isBin) {
+			result = resultBIN;
+		}
+		else if (isHex) {
+			result = resultHEX;
+		}
+		else {
+			result = resultDEC;
+		}
+		
 		nearestOperator = "";
 		isNewLife1 = true;
 		isNewLife = false;
@@ -528,7 +553,9 @@ void calculatorUnmanaged::handleOperator()
 
 			}
 			else {
-
+				QInt temp = Number0;
+				temp.input(result, 2);
+				previousNumber1 = previousNumber1 / temp;
 			}
 			//previousNumber /= Double(result)!
 		}
@@ -580,10 +607,22 @@ void calculatorUnmanaged::handleOperator()
 		}
 		else {
 			//previousNumber = Double(result)!
+			if (isBin) {
+				/*String^ Inp = gcnew String(result.c_str());
+
+				previousNumber1.input(Inp, 2);*/
+				previousNumber1.input(result, 2);
+				
+			}
+			else if (isHex) {
+				previousNumber1.input(result, 16);
+				
+			}
+			else {
+				previousNumber1.input(result, 10);
+				
+			}
 			
-			String^ Inp = gcnew String(result.c_str());
-			
-			previousNumber1.input(Inp, 2);
 		}
 	}
 	//throw gcnew System::NotImplementedException();
@@ -605,28 +644,38 @@ void calculatorUnmanaged::updateResult(std::string buttonTitle)
 	else if (Type1) {
 		if (isBin) {
 			resultBIN += buttonTitle;
+
+			int length = resultBIN.length();
+			if (length > 131) {
+				resultBIN.erase(resultBIN.begin()+0);
+			}
 			result = resultBIN;
+
 			
-			String^ Inp = gcnew String(result.c_str());
 			
-			previousNumberManaged.input(Inp, 2);
+			//String^ Inp = gcnew String(result.c_str());
+
+			
+			
+			previousNumberManaged.input(result, 2);
 			resultDEC = previousNumberManaged.print1(10);
 			resultHEX = previousNumberManaged.print1(16);
 		}
 		else if (isHex) {
 			resultHEX += buttonTitle;
-			String^ Inp = gcnew String(result.c_str());
+			result = resultHEX;
+			/*String^ Inp = gcnew String(result.c_str());
 
-			previousNumberManaged.input(Inp, 16);
+			previousNumberManaged.input(Inp, 16);*/
+			previousNumberManaged.input(resultHEX, 16);
 			resultDEC = previousNumberManaged.print1(10);
 			resultBIN = previousNumberManaged.print1(2);
 		}
 		else {
 			resultDEC += buttonTitle;
 			result = resultDEC;
-			String^ Inp = gcnew String(result.c_str());
-
-			previousNumberManaged.input(Inp, 10);
+			
+			previousNumberManaged.input(result, 10);
 			resultBIN = previousNumberManaged.print1(2);
 			resultHEX = previousNumberManaged.print1(16);
 		}
