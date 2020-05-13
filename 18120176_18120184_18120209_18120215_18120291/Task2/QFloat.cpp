@@ -276,7 +276,7 @@ void QFloat::DectoBin(string dec, string& ketqua)
 			{
 				if (right == storage[i])
 				{
-					same = i - 1;
+					same = i;
 					break;
 				}
 			}
@@ -300,7 +300,6 @@ void QFloat::DectoBin(string dec, string& ketqua)
 		}
 		first_time = false;
 	} while ((compare == 0 || compare == 2) && ((int)anthr_temp.size() < 112 - (int)temp.size()));
-	int sizeB = anthr_temp.size();
 	int j = same;
 	int save = 0;
 	while ((int)anthr_temp.size() < 112 - (int)temp.size())
