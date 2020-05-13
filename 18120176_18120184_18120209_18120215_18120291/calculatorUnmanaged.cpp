@@ -39,7 +39,7 @@ void calculatorUnmanaged::calculatorHandleEvent(String^ buttonTitle1)
 
 	//Use previousNumberManaged to hold value of result and cast them to the right mode: 2,10 or 16.
 
-	if (isNewLife1 && buttonTitle!= "BIN" && buttonTitle != "DEC" && buttonTitle != "HEX") {
+	if (isNewLife1 && buttonTitle!= "BIN" && buttonTitle != "DEC" && buttonTitle != "HEX" && buttonTitle != ".") {
 		Type1 = true;
 		result = "";
 		resultBIN = "";
@@ -642,16 +642,12 @@ void calculatorUnmanaged::updateResult(std::string buttonTitle)
 			resultBIN += buttonTitle;
 
 			int length = resultBIN.length();
-			if (length > 131) {
+			if (length > 128) {
 				resultBIN.erase(resultBIN.begin()+0);
 			}
+
 			result = resultBIN;
 
-			
-			
-			//String^ Inp = gcnew String(result.c_str());
-
-			
 			
 			previousNumberManaged.input(result, 2);
 			resultDEC = previousNumberManaged.print1(10);
@@ -660,9 +656,7 @@ void calculatorUnmanaged::updateResult(std::string buttonTitle)
 		else if (isHex) {
 			resultHEX += buttonTitle;
 			result = resultHEX;
-			/*String^ Inp = gcnew String(result.c_str());
-
-			previousNumberManaged.input(Inp, 16);*/
+			
 			previousNumberManaged.input(resultHEX, 16);
 			resultDEC = previousNumberManaged.print1(10);
 			resultBIN = previousNumberManaged.print1(2);
@@ -680,7 +674,13 @@ void calculatorUnmanaged::updateResult(std::string buttonTitle)
 		if (isBin) {
 			if (buttonTitle != ".") {
 				resultBIN += buttonTitle;
+				int length = resultBIN.length();
+				if (length > 128) {
+					resultBIN.erase(resultBIN.begin() + 0);
+				}
 			}
+			
+			
 			result = resultBIN;
 			resultHEX = "";
 			previousNumber2.ScanQFloat(2, result);
@@ -697,7 +697,16 @@ void calculatorUnmanaged::updateResult(std::string buttonTitle)
 
 		}
 		else {
-			resultDEC += buttonTitle;
+			if (buttonTitle != ".") {
+				resultDEC += buttonTitle;
+			}
+			else if (resultDEC == "") {
+
+			}
+			else {
+				resultDEC += buttonTitle;
+			}
+			
 			result = resultDEC;
 			resultHEX = "";
 			

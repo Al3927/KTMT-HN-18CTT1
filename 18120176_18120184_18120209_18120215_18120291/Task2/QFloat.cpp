@@ -28,18 +28,30 @@ unsigned int QFloat::MulAdd(const unsigned int& mul, const unsigned int add) {
 
 void QFloat::ScanQFloat(int mode, string inp)
 {
+	string str;
 	if (mode == 10)
 	{
-		DectoBin(inp, inp);
+		DectoBin(inp, str);
 	}
-	string::iterator it = inp.begin();
-	while (it != inp.end())
-		if (*it >= '0' && *it <= '1') {
-			if (MulAdd(2, *it - '0')) {
+	else if (mode == 2)
+	{
+		str = inp;
+	}
+	string::iterator it = str.begin();
+	while (*it == '\t' || *it == '\n' || *it == '\v' || *it == '\f' || *it == '\r' || *it == ' ') {
+		it++;
+	}
+	while (it != str.end())
+	{
+		if (*it >= '0' && *it <= '1')
+		{
+			if (MulAdd(2, *it - '0'))
+			{
 				//NULL
 			}
-			it++;
 		}
+		it++;
+	}
 }
 
 void QFloat::PrintQFloat()
