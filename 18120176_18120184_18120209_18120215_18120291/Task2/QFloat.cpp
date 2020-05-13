@@ -225,7 +225,7 @@ void QFloat::DectoBin(string dec, string& ketqua)
 	if (zero_zero)
 	{
 		ketqua = sign + '0';
-		for (int i = sign; i < 128; i++)
+		for (int i = sign; i < 127; i++)
 			ketqua += '0';
 		return;
 	}
@@ -303,7 +303,7 @@ void QFloat::DectoBin(string dec, string& ketqua)
 	int sizeB = anthr_temp.size();
 	int j = same;
 	int save = 0;
-	while ((int)anthr_temp.size() < (112 - (int)temp.size() - sizeB))
+	while ((int)anthr_temp.size() < 112 - (int)temp.size())
 	{
 		if (complete)
 			anthr_temp += '0';
@@ -357,69 +357,73 @@ void QFloat::DectoBin(string dec, string& ketqua)
 		result = anthr_temp;
 	else
 		result = temp + anthr_temp;
-	// Lam tron len cho phan tri
-	char remainder = '0';
-	// Neu la so duong
-	if (!sign)
+	if (!complete)
 	{
-		if (result[result.size() - 1] == '0')
-			result[result.size() - 1] = '1';
-		else if (result[result.size() - 1] == '1')
+		// Lam tron len cho phan tri
+		char remainder = '0';
+		// Neu la so duong
+		if (!sign)
 		{
-			result[result.size() - 1] = '0';
-			remainder = '1';
-		}
-		for (int i = result.size() - 2; i >= 0; i--)
-		{
-			if (result[i] == '0' && remainder == '0')
+			if (result[result.size() - 1] == '0')
+				result[result.size() - 1] = '1';
+			else if (result[result.size() - 1] == '1')
 			{
-				result[i] = '0';
-			}
-			else if (result[i] == '0' && remainder == '1')
-			{
-				result[i] = '1';
-				remainder = '0';
-			}
-			else if (result[i] == '1' && remainder == '0')
-				result[i] = '1';
-			else if (result[i] == '1' && remainder == '1')
-			{
-				result[i] = '0';
+				result[result.size() - 1] = '0';
 				remainder = '1';
 			}
-		}
-		remainder = '0';
-	}
-	// Neu la so am
-	else
-	{
-		if (result[result.size() - 1] == '0')
-		{
-			result[result.size() - 1] = '1';
-			remainder = '1';
-		}
-		else if (result[result.size() - 1] == '1')
-			result[result.size() - 1] = '0';
-		for (int i = result.size() - 2; i >= 0; i--)
-		{
-			if (result[i] == '0' && remainder == '0')
+			for (int i = result.size() - 2; i >= 0; i--)
 			{
-				result[i] = '0';
+				if (result[i] == '0' && remainder == '0')
+				{
+					result[i] = '0';
+				}
+				else if (result[i] == '0' && remainder == '1')
+				{
+					result[i] = '1';
+					remainder = '0';
+				}
+				else if (result[i] == '1' && remainder == '0')
+					result[i] = '1';
+				else if (result[i] == '1' && remainder == '1')
+				{
+					result[i] = '0';
+					remainder = '1';
+				}
 			}
-			else if (result[i] == '0' && remainder == '1')
+			remainder = '0';
+		}
+		// Neu la so am
+		else
+		{
+			if (result[result.size() - 1] == '0')
 			{
-				result[i] = '1';
+				result[result.size() - 1] = '1';
 				remainder = '1';
 			}
-			else if (result[i] == '1' && remainder == '0')
-				result[i] = '1';
-			else if (result[i] == '1' && remainder == '1')
+			else if (result[result.size() - 1] == '1')
+				result[result.size() - 1] = '0';
+			for (int i = result.size() - 2; i >= 0; i--)
 			{
-				result[i] = '0';
-				remainder = '0';
+				if (result[i] == '0' && remainder == '0')
+				{
+					result[i] = '0';
+				}
+				else if (result[i] == '0' && remainder == '1')
+				{
+					result[i] = '1';
+					remainder = '1';
+				}
+				else if (result[i] == '1' && remainder == '0')
+					result[i] = '1';
+				else if (result[i] == '1' && remainder == '1')
+				{
+					result[i] = '0';
+					remainder = '0';
+				}
 			}
 		}
 	}
+	// Phan Exponent
 	string Mu = "000000000000000";
 	int k = 1;
 	while (E)
