@@ -12,6 +12,7 @@ ref class calculationModel
 {
 public:
 	static calculatorUnmanaged* Calculator = new calculatorUnmanaged();
+	~calculationModel();
 
 };
 
